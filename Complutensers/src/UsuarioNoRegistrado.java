@@ -1,5 +1,6 @@
 
 public class UsuarioNoRegistrado implements Usuario {
+	
     public void registrarse() {
     }
 

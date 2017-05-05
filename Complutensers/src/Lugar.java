@@ -7,6 +7,11 @@
 public class Lugar {
     private String direccion;
     private Coordenada coordenada;
+    /*
+     * Necesario para otras clases constructor sin parametros
+     * public Lugar() {
+		// TODO Auto-generated constructor stub
+	}*/
     
     /**
      * Constructor
@@ -35,7 +40,8 @@ public class Lugar {
     	coordenada = map.obtenerCoordenada(direc);
     	direccion = direc;
     }
-    /**
+    
+	/**
      * @return coordinate of the place.
      */
     public Coordenada getCoordenadas(){
