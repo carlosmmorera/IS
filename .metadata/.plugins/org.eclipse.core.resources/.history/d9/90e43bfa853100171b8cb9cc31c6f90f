@@ -9,8 +9,5 @@ public class Agrupacion extends UsuarioConLog implements Buscable {
 
     public void insertarEnBuscador() {
     }
-	public void AccederMapaGeneral() {
-		
-	}
 
 }

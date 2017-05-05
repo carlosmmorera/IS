@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Alumno extends UsuarioConLog {
-    private List<Agrupacion> agrupaciones = new ArrayList<Agrupacion> ();
+    public List<Agrupacion> agrupacion = new ArrayList<Agrupacion> ();
 
     public boolean apuntarseActividad() {
         // TODO Auto-generated return
@@ -22,11 +22,5 @@ public class Alumno extends UsuarioConLog {
 
     public void crearAgrupacion() {
     }
-
-	@Override
-	public void AccederMapaGeneral() {
-		// TODO Auto-generated method stub
-		
-	}
 
 }
