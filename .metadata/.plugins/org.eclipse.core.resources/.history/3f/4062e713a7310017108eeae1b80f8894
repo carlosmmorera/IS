@@ -1,0 +1,13 @@
+
+public class Mapa {
+	/**
+	 * @param direccion
+	 * @return coordinate relationed with the address
+	 */
+	public Coordenada obtenerCoordenada(String direccion){
+		return null;
+	}
+	public String obtenerDireccion(Coordenada coordenada){
+		return null;
+	}
+}

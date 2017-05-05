@@ -22,9 +22,9 @@ public class Lugar {
      * @param coord
      */
     public Lugar(Coordenada coord){
-    	Mapa map = new Mapa();
     	coordenada = coord;
-    	direccion = map.obtenerDireccion(coord);
+    	//The address could be obtained through a map
+    	direccion = null;
     }
     /**
      * Constructor
@@ -32,7 +32,7 @@ public class Lugar {
      */
     public Lugar(String direc){
     	Mapa map = new Mapa();
-    	coordenada = map.obtenerCoordenada(direc);
+    	coordenada = null;
     	direccion = direc;
     }
     /**

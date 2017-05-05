@@ -1,0 +1,9 @@
+
+public class Mapa {
+	public Coordenada obtenerCoordenada(String direccion){
+		return null;
+	}
+	public String obtenerDireccion(Coordenada coordenada){
+		return null;
+	}
+}

@@ -24,7 +24,7 @@ public class Lugar {
     public Lugar(Coordenada coord){
     	Mapa map = new Mapa();
     	coordenada = coord;
-    	direccion = map.obtenerDireccion(coord);
+    	direccion = null;
     }
     /**
      * Constructor
