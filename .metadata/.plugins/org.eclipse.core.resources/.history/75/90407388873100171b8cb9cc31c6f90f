@@ -1,0 +1,24 @@
+
+/**
+ * 
+ * @author Ariadna
+ * @version 1.0
+ */
+public class Lugar {
+    private  double latitud;
+    private double longitud;
+    private string
+
+    public void MostrarEnMapa() {
+    }
+    /**
+     * Sets the latitude and the longitude of the place.
+     * @param lat
+     * @param longit
+     */
+    public void modificarCoordenadas(double lat, double longit) {
+    	latitud = lat;
+    	longitud = longit;
+    }
+
+}

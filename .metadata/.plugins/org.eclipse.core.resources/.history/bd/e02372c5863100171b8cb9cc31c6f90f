@@ -1,0 +1,12 @@
+
+public class Lugar {
+    private  double latitud;
+    private double longitud;
+
+    public void MostrarEnMapa() {
+    }
+    public void Modificar() {
+    	
+    }
+
+}

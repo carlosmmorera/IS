@@ -1,0 +1,10 @@
+
+public class Coordenada {
+	private  double latitud;
+    private double longitud;
+    
+    public void modificarCoordenadas(double lat, double longit) {
+    	latitud = lat;
+    	longitud = longit;
+    }
+}
