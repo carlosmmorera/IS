@@ -3,9 +3,7 @@ import java.util.List;
 
 public abstract class UsuarioConLog implements Usuario {
     private String Nombre;
-
     private String Password;
-
     private boolean Logged;
 
     public List<Actividad> actividadesPendientes = new ArrayList<Actividad> ();

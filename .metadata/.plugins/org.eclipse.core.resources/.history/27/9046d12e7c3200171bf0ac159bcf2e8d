@@ -1,0 +1,13 @@
+
+public class Mensaje {
+    private String Destinatario;
+    private String Remitente;
+    private String asunto;
+    private String Cuerpo;
+    
+    
+
+    public void mostrar() {
+    }
+
+}

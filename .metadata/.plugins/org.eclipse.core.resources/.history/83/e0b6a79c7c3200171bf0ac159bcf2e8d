@@ -1,0 +1,25 @@
+
+public class Mensaje {
+    private String destinatario;
+    private String remitente;
+    private String asunto;
+    private String cuerpo;
+    
+    /**
+     * Constructor
+     * @param para
+     * @param de
+     * @param asunto
+     * @param mensaje
+     */
+    public Mensaje(String para, String de, String asunto, String mensaje){
+    	destinatario = para;
+    	remitente = de;
+    	this.asunto = asunto;
+    	cuerpo = mensaje;
+    }
+    
+    public void mostrar() {
+    }
+
+}

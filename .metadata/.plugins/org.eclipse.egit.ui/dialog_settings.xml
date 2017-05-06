@@ -7,4 +7,6 @@
 	</list>
 	<section name="GitImportWizard">
 	</section>
+	<section name="GitCommitMessageComponent">
+	</section>
 </section>

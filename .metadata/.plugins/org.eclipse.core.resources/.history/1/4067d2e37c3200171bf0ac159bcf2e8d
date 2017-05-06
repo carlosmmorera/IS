@@ -1,0 +1,30 @@
+import java.util.ArrayList;
+import java.util.List;
+
+public class Evento {
+    private String Nombre;
+    private String Descripcion;
+    private String[] palabrasClave;
+    private List<Lugar> lugar = new ArrayList<Lugar> ();
+
+    private List<Fecha> fecha = new ArrayList<Fecha> ();
+
+    public void ModificarFecha() {
+    }
+
+    public void ModificarLugar() {
+    }
+
+    public void ModificarBuscador() {
+    }
+
+    public void ModificarPalabrasClave() {
+    }
+
+    public void ModificarDescripcion() {
+    }
+
+    public void ModificarNombre() {
+    }
+
+}

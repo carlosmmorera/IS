@@ -1,0 +1,16 @@
+
+public class Mensaje {
+    private String destinatario;
+    private String remitente;
+    private String asunto;
+    private String cuerpo;
+    
+    public Mensaje(String para, String de, String about, String mensaje){
+    	destinatario = para;
+    	remitente = de;
+    }
+
+    public void mostrar() {
+    }
+
+}
