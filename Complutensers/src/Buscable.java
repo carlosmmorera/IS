@@ -1,5 +1,8 @@
+import java.util.ArrayList;
+
 
 public interface Buscable {
-    void insertarEnBuscador();
+    
+    ArrayList<String> obtenerPalabrasClave();
 
 }
