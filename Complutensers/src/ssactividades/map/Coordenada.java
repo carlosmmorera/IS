@@ -1,3 +1,4 @@
+package ssactividades.map;
 /**
  * 
  * @author Ariadna

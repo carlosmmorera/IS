@@ -1,3 +1,4 @@
+package ssactividades;
 
 public class Hora {
     private int hora;
@@ -12,8 +13,10 @@ public class Hora {
     	this.setHora(h);
     	this.setMinuto(m);
     }
-    public void Mostrar() {
-    	//Parte swing
+    public String toString() {
+    	String resultado=hora+":";
+    	if (minuto<10)resultado+="0";
+    	return resultado+minuto;
     }
 
     public void Modificar(int h, int m) {

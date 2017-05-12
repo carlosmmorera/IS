@@ -1,3 +1,5 @@
+package ssactividades.map;
+
 
 public class Mapa {
 	/**
@@ -18,7 +20,7 @@ public class Mapa {
 	 * Shows the place in the map.
 	 * @param lugar
 	 */
-	public void mostrarEnMapa(Lugar lugar){
+	public void mostrarEnMapa(Lugar lugar){      
 		
 	}
 }

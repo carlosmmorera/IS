@@ -1,3 +1,4 @@
+package ssusuarios;
 
 public class UsuarioNoRegistrado implements Usuario {
 	

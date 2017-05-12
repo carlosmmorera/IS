@@ -1,5 +1,8 @@
+package ssusuarios;
 import java.util.ArrayList;
 import java.util.List;
+
+import ssactividades.Actividad;
 
 public abstract class UsuarioConLog implements Usuario {
     private String Nombre;

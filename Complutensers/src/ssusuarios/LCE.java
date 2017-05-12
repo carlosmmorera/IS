@@ -1,4 +1,7 @@
+package ssusuarios;
 import java.util.ArrayList;
+
+import ssactividades.Actividad;
 
 
 public class LCE extends Agrupacion {

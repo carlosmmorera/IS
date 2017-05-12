@@ -1,3 +1,4 @@
+package ssusuarios;
 /**
  * @author Ariadna
  * @version 1.0

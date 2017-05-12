@@ -1,7 +1,12 @@
+package ssbuscador;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
+
+import ssactividades.Actividad;
+import ssactividades.Iniciativa;
+import ssusuarios.Agrupacion;
 
 public class Buscador {
 	public List<PalabraClave> palabrasClave = new ArrayList<PalabraClave>();

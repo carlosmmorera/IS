@@ -12,8 +12,10 @@
 /Lugar.class
 /Mapa.class
 /Mensaje.class
+/PalabraClave.class
 /Usuario.class
 /UsuarioConLog.class
 /UsuarioNoRegistrado.class
-/palabraClave.class
-/PalabraClave.class
+/ssactividades/
+/ssusuarios/
+/ssbuscador/

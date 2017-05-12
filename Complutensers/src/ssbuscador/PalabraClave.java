@@ -1,5 +1,10 @@
+package ssbuscador;
 import java.util.ArrayList;
 import java.util.List;
+
+import ssactividades.Actividad;
+import ssactividades.Iniciativa;
+import ssusuarios.Agrupacion;
 
 public class PalabraClave {
     private String palabra;

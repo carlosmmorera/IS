@@ -1,3 +1,5 @@
+package ssactividades.map;
+
 
 /**
  * 
@@ -7,12 +9,7 @@
 public class Lugar {
     private String direccion;
     private Coordenada coordenada;
-    /*
-     * Necesario para otras clases constructor sin parametros
-     * public Lugar() {
-		// TODO Auto-generated constructor stub
-	}*/
-    
+
     /**
      * Constructor
      * @param coord

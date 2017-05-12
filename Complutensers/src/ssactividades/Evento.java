@@ -1,12 +1,16 @@
+package ssactividades;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Evento {
+import ssactividades.map.Lugar;
+import ssbuscador.Buscable;
+
+public class Evento implements Buscable{
     private String nombre;
     private String descripcion;
-    private String[] palabrasClave;
-    private List<Lugar> lugar = new ArrayList<Lugar> ();
-    private List<Fecha> fecha = new ArrayList<Fecha> ();
+    private ArrayList<String> palabrasClave=new ArrayList<String>();
+    private ArrayList<Lugar> lugar = new ArrayList<Lugar> ();
+    private ArrayList<Fecha> fecha = new ArrayList<Fecha> ();
     /**
      * Constructor
      * @param name
@@ -15,8 +19,8 @@ public class Evento {
      * @param places
      * @param dates
      */
-    public Evento(String name, String description, String[] keyWords,
-    		List<Lugar> places, List<Fecha> dates){
+    public Evento(String name, String description, ArrayList<String> keyWords,
+    		ArrayList<Lugar> places, ArrayList<Fecha> dates){
     	nombre = name;
     	descripcion = description;
     	palabrasClave = keyWords;
@@ -27,14 +31,14 @@ public class Evento {
      * Modifies the date.
      * @param date
      */
-    public void modificarFecha(List<Fecha> date) {
+    public void modificarFecha(ArrayList<Fecha> date) {
     	fecha = date;
     }
     /**
      * Modifies the place.
      * @param places
      */
-    public void modificarLugar(List<Lugar> places) {
+    public void modificarLugar(ArrayList<Lugar> places) {
     	lugar = places;
     }
 
@@ -45,7 +49,7 @@ public class Evento {
      * Modifies the key words.
      * @param keyWords
      */
-    public void modificarPalabrasClave(String[] keyWords) {
+    public void modificarPalabrasClave(ArrayList<String> keyWords) {
     	palabrasClave = keyWords;
     }
     /**
@@ -62,4 +66,8 @@ public class Evento {
     public void ModificarNombre(String name) {
     	nombre = name;
     }
+	@Override
+	public ArrayList<String> obtenerPalabrasClave() {
+		return palabrasClave;
+	}
 }
