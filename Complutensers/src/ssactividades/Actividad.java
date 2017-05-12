@@ -9,23 +9,24 @@ import ssusuarios.Alumno;
 
 public class Actividad extends Evento implements Buscable {
     public Actividad(String name, String description, ArrayList<String> keyWords,
-    		ArrayList<Lugar> places, ArrayList<Fecha> dates) {
+    		ArrayList<Lugar> places, ArrayList<Fecha> dates,Agrupacion agr) {
 		super(name, description, keyWords, places, dates);
-		// TODO Auto-generated constructor stub
+		verificada=false;
+		agrupacion=agr;
 	}
 
 
 	private boolean verificada;
     private Agrupacion agrupacion;
-
-    public List<Alumno> alumnosInscritos = new ArrayList<Alumno> ();
+    private List<Alumno> alumnosInscritos = new ArrayList<Alumno> ();
 
 
 	public void verificar() {
 		verificada = true;
-		
 	}
 
-
+	public void apuntarAlumno(Alumno al){
+		alumnosInscritos.add(al);
+	}
 
 }

@@ -5,7 +5,12 @@ import ssactividades.Actividad;
 
 
 public class LCE extends Agrupacion {
-    public void verificarRegistro() {
+    public LCE(String nombre, String password) {
+		super(nombre, password);
+		
+	}
+
+	public void verificarRegistro() {
     	
     }
 

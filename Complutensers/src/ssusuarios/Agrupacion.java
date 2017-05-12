@@ -1,11 +1,16 @@
 package ssusuarios;
 import java.util.ArrayList;
-import java.util.List;
 
 import ssbuscador.Buscable;
 
 public class Agrupacion extends UsuarioConLog implements Buscable {
-    private ArrayList<Alumno> alumno = new ArrayList<Alumno> ();
+    public Agrupacion(String nombre, String password) {
+		super(nombre, password);
+		// TODO Auto-generated constructor stub
+	}
+
+
+	private ArrayList<Alumno> alumno = new ArrayList<Alumno> ();
     private ArrayList<String> palabrasClave=new ArrayList<String>();
     
     public void accederHistorial() {

@@ -2,32 +2,38 @@ package ssusuarios;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Alumno extends UsuarioConLog {
-    private List<Agrupacion> agrupaciones = new ArrayList<Agrupacion> ();
+import ssactividades.Actividad;
 
-    public boolean apuntarseActividad() {
-        // TODO Auto-generated return
-        return false;
+public class Alumno extends UsuarioConLog {
+    public Alumno(String nombre, String password) {
+		super(nombre, password);
+	}
+
+	private List<Agrupacion> agrupaciones = new ArrayList<Agrupacion> ();
+
+    public void apuntarseActividad(Actividad a) {
+        actividadesPendientes.add(a);
     }
 
-    public boolean apuntarseAsociacion() {
-        // TODO Auto-generated return
-        return false;
+    public void apuntarseAsociacion(Agrupacion a) {
+       agrupaciones.add(a);
     }
 
     public void accederHistorial() {
+    	//not implemented
     }
 
     public void accederActividadRecomendada() {
+    	//not implemented
     }
 
     public void crearAgrupacion() {
+    	//not implemented
     }
 
 	@Override
 	public void AccederMapaGeneral() {
-		// TODO Auto-generated method stub
-		
+		//not implemented
 	}
 
 }
