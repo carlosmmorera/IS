@@ -1,5 +1,5 @@
 package ssusuarios;
 
-public interface Usuario {
+public interface Usuario{
     void AccederMapaGeneral();
 }

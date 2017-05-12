@@ -5,6 +5,6 @@ import java.util.List;
 
 public interface Buscable {
     
-    List<String> obtenerPalabrasClave();
+    ArrayList<String> obtenerPalabrasClave();
 
 }
