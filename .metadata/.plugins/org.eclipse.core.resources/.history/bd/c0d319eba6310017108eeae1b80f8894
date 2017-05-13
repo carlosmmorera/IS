@@ -1,6 +1,0 @@
-
-public class Mapa {
-	public Coordenada obtenerCoordenada(String direccion){
-		return null;
-	}
-}
