@@ -60,5 +60,7 @@ public class LoginFrame extends JFrame{
 		panel.add(botones);
 		return panel;
 	}
+	//oye, putoeclipse
 
 }
+
