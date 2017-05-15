@@ -31,7 +31,7 @@ public class Buscador {
 	public void insertarActividad(final Actividad act) {
 		ArrayList<String> pc = act.obtenerPalabrasClave();
 		for (String palabra : pc) {
-			int pos = busquedaBinaria(palabra, 0, palabrasClave.size());
+			int pos = busquedaBinaria(palabra, 0, palabrasClave.size()-1);
 			if (pos < 0) {
 				PalabraClave nueva = new PalabraClave(palabra);
 				palabrasClave.add(nueva);

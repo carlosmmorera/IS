@@ -2,8 +2,11 @@ package view;
 
 import java.awt.Dimension;
 import java.awt.FlowLayout;
+import java.io.IOException;
 
+import javax.imageio.ImageIO;
 import javax.swing.BoxLayout;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -54,6 +57,14 @@ public class LoginFrame extends JFrame{
 		notlogButton = new JButton("Entrar sin log");
 		botones.add(logButton);
 		botones.add(notlogButton);
+		
+
+		try {
+			logButton.setIcon(new ImageIcon(ImageIO.read(getClass().getResource(
+					"/labuenalupa.png" ))));
+		} catch (IOException e1) {
+			
+		}
 		
 		panel.add(userp);
 		panel.add(pass);
