@@ -15,13 +15,13 @@ public abstract class UsuarioConLog implements Usuario {
     public UsuarioConLog(String nombre,String password){
     	this.nombre=nombre;
     	this.password=password;
-    	logged = false;
+    	logged=false;
     }
     public void AccederBuzon() {
     }
 
     public boolean logIn(String nombre,String password) {
-    	logged = this.nombre == nombre && this.password == password;
+    	logged=this.nombre==nombre&&this.password==password;
     	return logged;
     }
 

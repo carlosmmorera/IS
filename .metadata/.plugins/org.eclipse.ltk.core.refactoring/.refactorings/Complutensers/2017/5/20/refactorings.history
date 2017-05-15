@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;Complutensers/src/DAO/login.txt&apos; to &apos;loginAE.txt&apos;" description="Rename resource &apos;login.txt&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/DAO/login.txt" name="loginAE.txt" stamp="1494841681313" updateReferences="true"/>
+</session>

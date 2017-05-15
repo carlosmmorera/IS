@@ -5,11 +5,11 @@ import java.util.List;
 import ssactividades.Actividad;
 
 public class Alumno extends UsuarioConLog {
-	private List<Agrupacion> agrupaciones = new ArrayList<Agrupacion> ();
-	
     public Alumno(String nombre, String password) {
 		super(nombre, password);
 	}
+
+	private List<Agrupacion> agrupaciones = new ArrayList<Agrupacion> ();
 
     public void apuntarseActividad(Actividad a) {
         actividadesPendientes.add(a);

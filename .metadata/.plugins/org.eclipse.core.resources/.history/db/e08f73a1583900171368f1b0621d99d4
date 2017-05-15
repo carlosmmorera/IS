@@ -1,0 +1,6 @@
+package DAO;
+
+public class DAO {
+	final static String NAME_STUDENT = "loginStudent.txt";
+	final static String NAME_AE = "loginAE.txt";
+}
