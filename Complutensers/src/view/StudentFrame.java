@@ -5,18 +5,33 @@
  */
 package view;
 
+import java.util.ArrayList;
+
+import ssactividades.Actividad;
+import ssusuarios.Agrupacion;
+
 /**
  *
  * @author Bittor
  */
 public class StudentFrame extends javax.swing.JFrame {
 
+	public ButtonListener listener;
+	
+	
     /**
      * Creates new form AEFrame
      */
-    public StudentFrame() {
+    public StudentFrame(ButtonListener listen) {
+    	this.listener=listen;
         initComponents();
     }
+    
+    public interface ButtonListener{
+		public ArrayList<Actividad> buscarActividad();
+		public ArrayList<Agrupacion> buscarAgrupacion();
+		public ArrayList<Actividad> buscarIniciativa();
+	}
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -30,13 +45,13 @@ public class StudentFrame extends javax.swing.JFrame {
         keyWords = new javax.swing.JTextField();
         textOfSearch = new javax.swing.JLabel();
         header = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        jButtonInic = new javax.swing.JButton();
+        jButtonActiv = new javax.swing.JButton();
         buscActText = new javax.swing.JLabel();
         buscIniText = new javax.swing.JLabel();
         logeadoComoText = new javax.swing.JLabel();
         ucmIcon = new javax.swing.JLabel();
-        jButton3 = new javax.swing.JButton();
+        jButtonAgrup = new javax.swing.JButton();
         buscInicText = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -55,25 +70,38 @@ public class StudentFrame extends javax.swing.JFrame {
         header.setMinimumSize(new java.awt.Dimension(384, 63));
         header.setPreferredSize(new java.awt.Dimension(384, 63));
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/labuenalupa.png"))); // NOI18N
+        jButtonInic.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/labuenalupa.png"))); // NOI18N
 
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/labuenalupa.png"))); // NOI18N
+        jButtonActiv.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/labuenalupa.png"))); // NOI18N
 
         buscActText.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
         buscActText.setText("Actividades");
 
         buscIniText.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
-        buscIniText.setText("Asociaciones");
+        buscIniText.setText("Agrupaciones");
 
         logeadoComoText.setFont(new java.awt.Font("Tahoma", 2, 12)); // NOI18N
         logeadoComoText.setText("Logeado como estudiante");
 
         ucmIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/ucm.png"))); // NOI18N
 
-        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/labuenalupa.png"))); // NOI18N
+        jButtonAgrup.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/labuenalupa.png"))); // NOI18N
 
         buscInicText.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
         buscInicText.setText("Iniciativas");
+        
+        jButtonInic.addActionListener((e)->{
+			listener.buscarIniciativa();
+		});
+        
+        jButtonActiv.addActionListener((e)->{
+			listener.buscarActividad();
+		});
+        
+        jButtonAgrup.addActionListener((e)->{
+			listener.buscarAgrupacion();
+		});
+                
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -96,15 +124,15 @@ public class StudentFrame extends javax.swing.JFrame {
                             .addComponent(textOfSearch, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 283, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton2)
+                            .addComponent(jButtonActiv)
                             .addComponent(buscActText))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(buscIniText)
-                            .addComponent(jButton3))
+                            .addComponent(jButtonAgrup))
                         .addGap(56, 56, 56)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jButton1)
+                            .addComponent(jButtonInic)
                             .addComponent(buscInicText))))
                 .addGap(49, 49, 49))
         );
@@ -124,9 +152,9 @@ public class StudentFrame extends javax.swing.JFrame {
                         .addComponent(keyWords, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(53, 53, 53)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jButton1)
-                            .addComponent(jButton3)))
-                    .addComponent(jButton2, javax.swing.GroupLayout.Alignment.TRAILING))
+                            .addComponent(jButtonInic)
+                            .addComponent(jButtonAgrup)))
+                    .addComponent(jButtonActiv, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(buscIniText)
@@ -171,7 +199,21 @@ public class StudentFrame extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new StudentFrame().setVisible(true);
+            	ButtonListener b = new ButtonListener(){
+            		public ArrayList<Actividad> buscarActividad(){
+            			System.out.println("Quieres buscar actividad");
+						return null;
+            		}
+            		public ArrayList<Agrupacion> buscarAgrupacion(){
+            			System.out.println("Quieres buscar agrupacion");
+						return null;
+            		}
+            		public ArrayList<Actividad> buscarIniciativa(){
+            			System.out.println("Quieres buscar iniciativa");
+						return null;
+            		}
+            	};
+                new StudentFrame(b).setVisible(true);
             }
         });
     }
@@ -181,9 +223,9 @@ public class StudentFrame extends javax.swing.JFrame {
     private javax.swing.JLabel buscIniText;
     private javax.swing.JLabel buscInicText;
     private javax.swing.JLabel header;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButtonInic;
+    private javax.swing.JButton jButtonActiv;
+    private javax.swing.JButton jButtonAgrup;
     private javax.swing.JTextField keyWords;
     private javax.swing.JLabel logeadoComoText;
     private javax.swing.JLabel textOfSearch;
