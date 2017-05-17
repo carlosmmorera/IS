@@ -4,14 +4,14 @@ import java.util.ArrayList;
 import ssbuscador.Buscable;
 
 public class Agrupacion extends UsuarioConLog implements Buscable {
-    public Agrupacion(String nombre, String password) {
-		super(nombre, password);
-		// TODO Auto-generated constructor stub
+    public Agrupacion(String nombre, String password,String[]actIni,ArrayList<String> pc) {
+		super(nombre, password,actIni);
+		palabrasClave=pc;
 	}
 
 
 	private ArrayList<Alumno> alumno = new ArrayList<Alumno> ();
-    private ArrayList<String> palabrasClave=new ArrayList<String>();
+    private ArrayList<String> palabrasClave;
     
     public void accederHistorial() {
     }

@@ -5,8 +5,8 @@ import ssactividades.Actividad;
 
 
 public class LCE extends Agrupacion {
-    public LCE(String nombre, String password) {
-		super(nombre, password);
+    public LCE(String nombre, String password,String[] actIni,ArrayList<String>pc) {
+		super(nombre, password,actIni,pc);
 		
 	}
 

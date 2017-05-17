@@ -9,8 +9,10 @@ public class Evento implements Buscable{
     private String nombre;
     private String descripcion;
     private ArrayList<String> palabrasClave=new ArrayList<String>();
-    private ArrayList<Lugar> lugar = new ArrayList<Lugar> ();
-    private ArrayList<Fecha> fecha = new ArrayList<Fecha> ();
+    //private ArrayList<Lugar> lugar = new ArrayList<Lugar> ();
+    //private ArrayList<Fecha> fecha = new ArrayList<Fecha> ();
+    Lugar lugar;
+    Fecha fecha;
     /**
      * Constructor
      * @param name
@@ -20,7 +22,7 @@ public class Evento implements Buscable{
      * @param dates
      */
     public Evento(String name, String description, ArrayList<String> keyWords,
-    		ArrayList<Lugar> places, ArrayList<Fecha> dates){
+    		Lugar places, Fecha dates){
     	nombre = name;
     	descripcion = description;
     	palabrasClave = keyWords;
@@ -31,14 +33,14 @@ public class Evento implements Buscable{
      * Modifies the date.
      * @param date
      */
-    public void modificarFecha(ArrayList<Fecha> date) {
+    public void modificarFecha(Fecha date) {
     	fecha = date;
     }
     /**
      * Modifies the place.
      * @param places
      */
-    public void modificarLugar(ArrayList<Lugar> places) {
+    public void modificarLugar(Lugar places) {
     	lugar = places;
     }
 

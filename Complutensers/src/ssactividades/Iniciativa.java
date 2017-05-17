@@ -11,8 +11,8 @@ import ssusuarios.Alumno;
 public class Iniciativa extends Evento implements Buscable {
 	public Alumno alumno;
 
-	public Iniciativa(String nombre, ArrayList<Lugar> lugar, ArrayList<Fecha> fecha, Hora hora, 
-			String descripcion, Alumno alumno,ArrayList<String> palabrasClave) {
+	public Iniciativa(String nombre, Lugar lugar, Fecha fecha,String descripcion,
+			Alumno alumno,ArrayList<String> palabrasClave) {
 		super(nombre,descripcion,palabrasClave,lugar,fecha);
 		this.alumno = alumno;
 	}

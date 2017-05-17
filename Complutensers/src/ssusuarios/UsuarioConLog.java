@@ -9,10 +9,11 @@ public abstract class UsuarioConLog implements Usuario {
     protected String password;
     protected boolean logged;
     protected ArrayList<Actividad> actividadesPendientes = new ArrayList<Actividad>();
-    protected ArrayList<Actividad> actividadesRealizadas = new ArrayList<Actividad>();
+    protected String[] actIni;
+    //protected ArrayList<Actividad> actividadesRealizadas = new ArrayList<Actividad>();
     protected ArrayList<Mensaje> mensaje = new ArrayList<Mensaje> ();
     
-    public UsuarioConLog(String nombre,String password){
+    public UsuarioConLog(String nombre,String password,String[] actIni){
     	this.nombre=nombre;
     	this.password=password;
     	logged = false;
@@ -28,5 +29,10 @@ public abstract class UsuarioConLog implements Usuario {
     public void logOut() {
     	logged=false;
     }
-
+    public String[] getAct(){
+    	return actIni;
+    }
+    public String getName(){
+    	return nombre;
+    }
 }

@@ -9,9 +9,10 @@ import ssusuarios.Alumno;
 
 public class Actividad extends Evento implements Buscable {
     public Actividad(String name, String description, ArrayList<String> keyWords,
-    		ArrayList<Lugar> places, ArrayList<Fecha> dates,Agrupacion agr) {
+    		Lugar places, Fecha dates,Agrupacion agr,String verified) {
 		super(name, description, keyWords, places, dates);
-		verificada=false;
+		if(verified.equalsIgnoreCase("Verificada"))verificada=true;
+		else verificada=false;
 		agrupacion=agr;
 	}
 

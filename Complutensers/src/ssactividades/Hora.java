@@ -13,6 +13,11 @@ public class Hora {
     	this.setHora(h);
     	this.setMinuto(m);
     }
+    public Hora(String hor){
+    	String[] hs=hor.split(":");
+    	hora=Integer.parseInt(hs[0]);
+    	minuto=Integer.parseInt(hs[1]);
+    }
     public String toString() {
     	String resultado=hora+":";
     	if (minuto<10)resultado+="0";

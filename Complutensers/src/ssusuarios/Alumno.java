@@ -7,8 +7,8 @@ import ssactividades.Actividad;
 public class Alumno extends UsuarioConLog {
 	private List<Agrupacion> agrupaciones = new ArrayList<Agrupacion> ();
 	
-    public Alumno(String nombre, String password) {
-		super(nombre, password);
+    public Alumno(String nombre, String password,String[] actIni) {
+		super(nombre, password,actIni);
 	}
 
     public void apuntarseActividad(Actividad a) {
