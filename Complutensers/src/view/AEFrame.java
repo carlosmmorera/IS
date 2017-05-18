@@ -4,6 +4,8 @@
  * and open the template in the editor.
  */
 package view;
+import java.util.ArrayList;
+import java.util.Observer;
 
 /**
  *
@@ -17,7 +19,21 @@ public class AEFrame extends javax.swing.JFrame {
     public AEFrame() {
         initComponents();
     }
+    
+    public interface BuscadorObserver{
+    	void searchActivity(String keyWords);
+    	void searchInitiative(String keyWords);
+    }
 
+    
+    public void addObserver(BuscadorObserver o){
+    	observers.add(o);
+    }
+    
+    public void removeObserver(BuscadorObserver o){
+    	observers.remove(o);
+    }
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -30,12 +46,13 @@ public class AEFrame extends javax.swing.JFrame {
         keyWords = new javax.swing.JTextField();
         textOfSearch = new javax.swing.JLabel();
         header = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        initiativeButton = new javax.swing.JButton();
+        activityButton = new javax.swing.JButton();
         buscActText = new javax.swing.JLabel();
         buscIniText = new javax.swing.JLabel();
         logeadoComoText = new javax.swing.JLabel();
         ucmIcon = new javax.swing.JLabel();
+        observers = new ArrayList<BuscadorObserver>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -53,9 +70,9 @@ public class AEFrame extends javax.swing.JFrame {
         header.setMinimumSize(new java.awt.Dimension(384, 63));
         header.setPreferredSize(new java.awt.Dimension(384, 63));
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/labuenalupa.png"))); // NOI18N
+        initiativeButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/labuenalupa.png"))); // NOI18N
 
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/labuenalupa.png"))); // NOI18N
+        activityButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/labuenalupa.png"))); // NOI18N
 
         buscActText.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
         buscActText.setText("Búsqueda de actividades");
@@ -75,9 +92,9 @@ public class AEFrame extends javax.swing.JFrame {
             .addComponent(header, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(64, 64, 64)
-                .addComponent(jButton2)
+                .addComponent(activityButton)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButton1)
+                .addComponent(initiativeButton)
                 .addGap(79, 79, 79))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -114,17 +131,23 @@ public class AEFrame extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(keyWords, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(53, 53, 53)
-                        .addComponent(jButton1))
-                    .addComponent(jButton2, javax.swing.GroupLayout.Alignment.TRAILING))
+                        .addComponent(initiativeButton))
+                    .addComponent(activityButton, javax.swing.GroupLayout.Alignment.TRAILING))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(buscIniText)
                     .addComponent(buscActText, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(126, Short.MAX_VALUE))
         );
-
+        
+        activityButton.addActionListener( (a) -> {for (BuscadorObserver j : observers) j.searchActivity(keyWords.getText());});
+        initiativeButton.addActionListener( (a) -> {for (BuscadorObserver j : observers) j.searchInitiative(keyWords.getText());});
+              
+        
         pack();
-    }// </editor-fold>                        
+    }// </editor-fold>     
+    
+    
 
     /**
      * @param args the command line arguments
@@ -156,7 +179,7 @@ public class AEFrame extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new AEFrame().setVisible(true);
+            	new AEFrame().setVisible(true);
             }
         });
     }
@@ -165,11 +188,12 @@ public class AEFrame extends javax.swing.JFrame {
     private javax.swing.JLabel buscActText;
     private javax.swing.JLabel buscIniText;
     private javax.swing.JLabel header;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton initiativeButton;
+    private javax.swing.JButton activityButton;
     private javax.swing.JTextField keyWords;
     private javax.swing.JLabel logeadoComoText;
     private javax.swing.JLabel textOfSearch;
     private javax.swing.JLabel ucmIcon;
+    private ArrayList<BuscadorObserver> observers;
     // End of variables declaration                   
 }

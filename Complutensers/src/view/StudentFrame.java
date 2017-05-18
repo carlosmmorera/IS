@@ -12,9 +12,9 @@ import ssusuarios.Agrupacion;
 
 /**
  *
- * @author Bittor
+ * @author Claudia
  */
-public class StudentFrame extends javax.swing.JFrame {
+public class StudentFrame extends javax.swing.JFrame{
 
 	public ButtonListener listener;
 	
