@@ -7,4 +7,8 @@ public interface Buscable {
     
     ArrayList<String> obtenerPalabrasClave();
 
+	String getName();
+
+	String getDescription();
+
 }

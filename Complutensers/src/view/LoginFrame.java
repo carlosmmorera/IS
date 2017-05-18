@@ -14,6 +14,9 @@ import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
+/*
+ * para ver como queda ejecutar la clase prueba
+ */
 public class LoginFrame extends JFrame{
 	
 	JTextField user;
@@ -55,16 +58,15 @@ public class LoginFrame extends JFrame{
 		botones.setSize(new Dimension(500,100));		
 		logButton = new JButton("Log in");
 		notlogButton = new JButton("Entrar sin log");
+		
+		logButton.addActionListener((e)->{
+			//TODO añadir la funcion a la que se llama al hacer click en login
+		});
+		notlogButton.addActionListener((e)->{
+			//TODO añadir la funcion a la que se llama al hacer click en entrar sin login
+		});
 		botones.add(logButton);
 		botones.add(notlogButton);
-		
-
-		try {
-			logButton.setIcon(new ImageIcon(ImageIO.read(getClass().getResource(
-					"/labuenalupa.png" ))));
-		} catch (IOException e1) {
-			
-		}
 		
 		panel.add(userp);
 		panel.add(pass);

@@ -29,4 +29,10 @@ public class Agrupacion extends UsuarioConLog implements Buscable {
 		alumno.add(a);
 	}
 
+
+	@Override
+	public String getDescription() {
+		return nombre;
+	}
+
 }

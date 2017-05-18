@@ -72,4 +72,12 @@ public class Evento implements Buscable{
 	public ArrayList<String> obtenerPalabrasClave() {
 		return palabrasClave;
 	}
+	@Override
+	public String getName() {
+		return nombre;
+	}
+	@Override
+	public String getDescription() {
+		return descripcion;
+	}
 }
