@@ -25,5 +25,8 @@ public class Agrupacion extends UsuarioConLog implements Buscable {
 	public ArrayList<String> obtenerPalabrasClave() {
 		return palabrasClave;
 	}
+	public void apuntarAlumno(Alumno a){
+		alumno.add(a);
+	}
 
 }

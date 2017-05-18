@@ -30,8 +30,7 @@ public class Alumno extends UsuarioConLog {
     public void crearAgrupacion() {
     	//not implemented
     }
-
-	@Override
+    
 	public void AccederMapaGeneral() {
 		//not implemented
 	}

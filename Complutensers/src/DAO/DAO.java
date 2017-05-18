@@ -30,6 +30,7 @@ public class DAO {
 		BufferedReader buffIni = new BufferedReader(new FileReader(NAME_INITIATIVES));
 		BufferedReader buffAlum = new BufferedReader(new FileReader(NAME_STUDENT));
 		BufferedReader buffAgru = new BufferedReader(new FileReader(NAME_AE));
+		//leer alumnos
 		String name,password,actIni;
 		String num;
 		num=buffAlum.readLine();
@@ -41,19 +42,29 @@ public class DAO {
 			String[] actIniSplit=actIni.split(" ");
 			alumnos.add(new Alumno(name,password,actIniSplit));
 		}
+		//leer agrupaciones
 		num=buffAgru.readLine();
-		String pc;
+		String pc,alums;
 		int totalAgru=Integer.parseInt(num);
 		for(int i=0;i<totalAgru;++i){
 			name=buffAgru.readLine();
 			password=buffAgru.readLine();
 			actIni=buffAgru.readLine();
+			alums=buffAgru.readLine();
 			pc=buffAgru.readLine();
 			String[] actIniSplit=actIni.split(" ");
-			String[]pcSplit=pc.split(" ");
+			String[] pcSplit=pc.split(" ");
+			String[] alumsSplit=alums.split(" ");
 			ArrayList<String> pcList=new ArrayList<String>();
 			for(int j=0;j<pcSplit.length;++j) pcList.add(pcSplit[j]);
 			agrupaciones.add(new Agrupacion(name,password,actIniSplit,pcList));
+			for(int j=0;j<alumsSplit.length;++j){
+				for(int k=0;k<alumnos.size();++k)
+					if(alumsSplit[j].equalsIgnoreCase(alumnos.get(k).getName())){
+						agrupaciones.get(i).apuntarAlumno(alumnos.get(k));
+						alumnos.get(k).apuntarseAsociacion(agrupaciones.get(i));
+					}
+			}
 		}
 		num=buffIni.readLine();
 		int totalIni=Integer.parseInt(num);
@@ -74,7 +85,52 @@ public class DAO {
 							alumnos.get(j),pcList));
 			}
 		}
-		
-		
+		String agru,verified;
+		num=buffAct.readLine();
+		int totalAct=Integer.parseInt(num);
+		for(int i=0;i<totalAct;++i){
+			name=buffAct.readLine();
+			desc=buffAct.readLine();
+			pc=buffAct.readLine();
+			lugar=buffAct.readLine();
+			fecha=buffAct.readLine();
+			alums=buffAct.readLine();
+			agru=buffAct.readLine();
+			verified=buffAct.readLine();
+			String[]pcSplit=pc.split(" ");
+			String[] alumsSplit=alums.split(" ");
+			ArrayList<String> pcList=new ArrayList<String>();
+			for(int j=0;j<pcSplit.length;++j) pcList.add(pcSplit[j]);
+			for(int j=0;j<agrupaciones.size();++j){
+				if(agru.equals(agrupaciones.get(j).getName()))
+					actividades.add(new Actividad(name,desc,pcList,new Lugar(lugar),
+							new Fecha(fecha),agrupaciones.get(j),verified));
+			}
+			for(int j=0;j<alumsSplit.length;++j){
+				for(int k=0;k<alumnos.size();++k){
+					if(alumsSplit[j].equalsIgnoreCase(alumnos.get(k).getName())){
+						actividades.get(i).apuntarAlumno(alumnos.get(k));
+						alumnos.get(k).apuntarseActividad(actividades.get(i));
+					}
+				}
+			}
+		}
+		buffAct.close();
+		buffIni.close();
+		buffAgru.close();
+		buffAlum.close();
+	}
+	
+	public ArrayList<Actividad> getActividades(){
+		return actividades;
+	}
+	public ArrayList<Iniciativa> getIniciativas(){
+		return iniciativas;
+	}
+	public ArrayList<Alumno> getAlumnos(){
+		return alumnos;
+	}
+	public ArrayList<Agrupacion> getAgrupaciones(){
+		return agrupaciones;
 	}
 }
