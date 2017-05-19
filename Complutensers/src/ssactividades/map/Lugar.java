@@ -7,7 +7,8 @@ package ssactividades.map;
  * @version 1.0
  */
 public class Lugar {
-    private String direccion;
+   
+	private String direccion;
     private Coordenada coordenada;
 
     /**

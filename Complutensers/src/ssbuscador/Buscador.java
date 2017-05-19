@@ -35,7 +35,7 @@ public class Buscador {
 			if (pos < 0) {
 				PalabraClave nueva = new PalabraClave(palabra);
 				palabrasClave.add(nueva);
-				int i = palabrasClave.size();
+				int i = palabrasClave.size() - 1;
 				while (i > 0
 						&& palabrasClave.get(i - 1).getPalabra()
 								.compareToIgnoreCase(palabra) > 0) {
@@ -57,7 +57,7 @@ public class Buscador {
 			if (pos < 0) {
 				PalabraClave nueva = new PalabraClave(palabra);
 				palabrasClave.add(nueva);
-				int i = palabrasClave.size();
+				int i = palabrasClave.size() - 1;
 				while (i > 0
 						&& palabrasClave.get(i - 1).getPalabra()
 								.compareToIgnoreCase(palabra) > 0) {
@@ -79,7 +79,7 @@ public class Buscador {
 			if (pos < 0) {
 				PalabraClave nueva = new PalabraClave(palabra);
 				palabrasClave.add(nueva);
-				int i = palabrasClave.size();
+				int i = palabrasClave.size() - 1;
 				while (i > 0
 						&& palabrasClave.get(i - 1).getPalabra()
 								.compareToIgnoreCase(palabra) > 0) {
@@ -106,7 +106,7 @@ public class Buscador {
 		return array;
     }
 
-	private ArrayList<Agrupacion> buscarAgrupaciones(String[] palabras) {
+	public ArrayList<Agrupacion> buscarAgrupaciones(String[] palabras) {
 		HashSet<Agrupacion> resultados = new HashSet<Agrupacion>();
 		for (String p : palabras) {
 			int pos = busquedaBinaria(p, 0, palabrasClave.size());
@@ -121,7 +121,7 @@ public class Buscador {
 		return array;
 	}
 
-	private ArrayList<Iniciativa> buscarIniciativas(String[] palabras) {
+	public ArrayList<Iniciativa> buscarIniciativas(String[] palabras) {
 		HashSet<Iniciativa> resultados = new HashSet<Iniciativa>();
 		for (String p : palabras) {
 			int pos = busquedaBinaria(p, 0, palabrasClave.size());
@@ -136,7 +136,7 @@ public class Buscador {
 		return array;
 	}
 
-	private ArrayList<Actividad> buscarActividades(String[] palabras) {
+	public ArrayList<Actividad> buscarActividades(String[] palabras) {
 		HashSet<Actividad> resultados = new HashSet<Actividad>();
 		for (String p : palabras) {
 			int pos = busquedaBinaria(p, 0, palabrasClave.size());

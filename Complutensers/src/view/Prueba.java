@@ -78,11 +78,31 @@ public class Prueba {
 
 			@Override
 			public void run() {
-				//LoginFrame loginframe = new LoginFrame();
+				LoginFrame loginframe = new LoginFrame(new LoginListener(){
+
+					@Override
+					public void loggear(String usuario, String password) {
+						System.out.println(usuario + password);
+						
+					}
+
+					@Override
+					public void entrarSinLog() {
+						// TODO Auto-generated method stub
+						
+					}
+
+					@Override
+					public void registrarse(String usuario, String password) {
+						System.out.println(usuario + password);
+						
+					}
+					
+				});
 				
 				ArrayList<Buscable> a =new ArrayList<Buscable>();
 				a=iniciarLista(a);				
-				ResultadosFrame f=new ResultadosFrame(a);
+			//	ResultadosFrame f=new ResultadosFrame(a);
 				
 			}
 			

@@ -30,4 +30,7 @@ public class Actividad extends Evento implements Buscable {
 		alumnosInscritos.add(al);
 	}
 
+	public String toString(){
+		return nombre + '\n' + descripcion +  '\n';
+	}
 }

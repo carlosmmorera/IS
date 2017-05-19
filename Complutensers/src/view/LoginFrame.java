@@ -23,9 +23,12 @@ public class LoginFrame extends JFrame{
 	JPasswordField password;
 	JButton logButton;
 	JButton notlogButton;
+	JButton register;
+	LoginListener loginlist;
 	
-	public LoginFrame (){
-		super("Login");		
+	public LoginFrame (LoginListener ll){
+		super("Login");	
+		loginlist=ll;
 		initGUI();
 	}
 	
@@ -58,15 +61,26 @@ public class LoginFrame extends JFrame{
 		botones.setSize(new Dimension(500,100));		
 		logButton = new JButton("Log in");
 		notlogButton = new JButton("Entrar sin log");
+		register = new JButton("Registrarse");
 		
 		logButton.addActionListener((e)->{
-			//TODO añadir la funcion a la que se llama al hacer click en login
+			loginlist.loggear(user.getText(), password.getText());
+			this.setVisible(false);
+			
 		});
 		notlogButton.addActionListener((e)->{
-			//TODO añadir la funcion a la que se llama al hacer click en entrar sin login
+			loginlist.entrarSinLog();
+			this.setVisible(false);
+			new FrameSinLog();
+		});
+		register.addActionListener((e)->{
+			loginlist.registrarse(user.getText(), password.getText());
+			this.setVisible(false);
+			
 		});
 		botones.add(logButton);
 		botones.add(notlogButton);
+		botones.add(register);
 		
 		panel.add(userp);
 		panel.add(pass);

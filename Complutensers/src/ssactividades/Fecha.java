@@ -29,7 +29,7 @@ public class Fecha {
     	resultado+=dia+"/";
     	if (mes<10)resultado+="0";
     	resultado+=mes+"/";
-    	return resultado+anyo+"a las "+hora;
+    	return resultado+anyo+" a las "+hora;
     	}
 
     public void modificar(int dia, int mes, int anyo, Hora hora) {

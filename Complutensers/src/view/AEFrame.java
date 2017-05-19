@@ -7,31 +7,23 @@ package view;
 import java.util.ArrayList;
 import java.util.Observer;
 
+import ssactividades.Actividad;
+import ssusuarios.Agrupacion;
+
 /**
  *
- * @author Bittor
+ * 
  */
 public class AEFrame extends javax.swing.JFrame {
 
+	SearchButtonListener listener;
+	
     /**
      * Creates new form AEFrame
      */
-    public AEFrame() {
+    public AEFrame(SearchButtonListener listen) {
+    	listener = listen;
         initComponents();
-    }
-    
-    public interface BuscadorObserver{
-    	void searchActivity(String keyWords);
-    	void searchInitiative(String keyWords);
-    }
-
-    
-    public void addObserver(BuscadorObserver o){
-    	observers.add(o);
-    }
-    
-    public void removeObserver(BuscadorObserver o){
-    	observers.remove(o);
     }
     
     /**
@@ -52,7 +44,6 @@ public class AEFrame extends javax.swing.JFrame {
         buscIniText = new javax.swing.JLabel();
         logeadoComoText = new javax.swing.JLabel();
         ucmIcon = new javax.swing.JLabel();
-        observers = new ArrayList<BuscadorObserver>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -140,8 +131,8 @@ public class AEFrame extends javax.swing.JFrame {
                 .addContainerGap(126, Short.MAX_VALUE))
         );
         
-        activityButton.addActionListener( (a) -> {for (BuscadorObserver j : observers) j.searchActivity(keyWords.getText());});
-        initiativeButton.addActionListener( (a) -> {for (BuscadorObserver j : observers) j.searchInitiative(keyWords.getText());});
+        activityButton.addActionListener((ae)->listener.buscarActividad(keyWords.getText()));
+        initiativeButton.addActionListener( (a) -> listener.buscarIniciativa(keyWords.getText()));
               
         
         pack();
@@ -179,7 +170,21 @@ public class AEFrame extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-            	new AEFrame().setVisible(true);
+            	SearchButtonListener b = new SearchButtonListener(){
+            		public ArrayList<Actividad> buscarActividad(String keyWords){
+            			System.out.println("Quieres buscar actividad " + keyWords);
+						return null;
+            		}
+            		public ArrayList<Agrupacion> buscarAgrupacion(String keyWords){
+            			System.out.println("Quieres buscar agrupacion " +  keyWords);
+						return null;
+            		}
+            		public ArrayList<Actividad> buscarIniciativa(String keyWords){
+            			System.out.println("Quieres buscar iniciativa " + keyWords);
+						return null;
+            		}
+            	};
+            	new AEFrame(b).setVisible(true);
             }
         });
     }
@@ -194,6 +199,5 @@ public class AEFrame extends javax.swing.JFrame {
     private javax.swing.JLabel logeadoComoText;
     private javax.swing.JLabel textOfSearch;
     private javax.swing.JLabel ucmIcon;
-    private ArrayList<BuscadorObserver> observers;
     // End of variables declaration                   
 }

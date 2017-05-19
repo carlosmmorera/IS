@@ -14,6 +14,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JSeparator;
 import javax.swing.JTextArea;
 
+import ssactividades.Actividad;
 import ssbuscador.Buscable;
 
 /*
@@ -21,11 +22,11 @@ import ssbuscador.Buscable;
  */
 public class ResultadosFrame extends JFrame{
 	
-	ArrayList<Buscable> resultados;
+	ArrayList<Actividad> resultados;
 	JPanel panelresultados;
 	JPanel panelinfo;
 	
-	public ResultadosFrame(ArrayList<Buscable> a){
+	public ResultadosFrame(ArrayList<Actividad> a){
 		super("Resultados de búsqueda");
 		resultados=a;
 		initGUI(a.size());

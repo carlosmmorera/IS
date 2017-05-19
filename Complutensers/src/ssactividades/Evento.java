@@ -6,9 +6,9 @@ import ssactividades.map.Lugar;
 import ssbuscador.Buscable;
 
 public class Evento implements Buscable{
-    private String nombre;
-    private String descripcion;
-    private ArrayList<String> palabrasClave=new ArrayList<String>();
+    protected String nombre;
+    protected String descripcion;
+    protected ArrayList<String> palabrasClave=new ArrayList<String>();
     //private ArrayList<Lugar> lugar = new ArrayList<Lugar> ();
     //private ArrayList<Fecha> fecha = new ArrayList<Fecha> ();
     Lugar lugar;
@@ -78,6 +78,6 @@ public class Evento implements Buscable{
 	}
 	@Override
 	public String getDescription() {
-		return descripcion;
+		return descripcion+"\nFecha: "+fecha.toString()+"\nLugar: "+ lugar.getDireccion();
 	}
 }

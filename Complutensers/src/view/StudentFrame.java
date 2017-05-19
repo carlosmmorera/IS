@@ -12,26 +12,21 @@ import ssusuarios.Agrupacion;
 
 /**
  *
- * @author Claudia
+ * 
  */
 public class StudentFrame extends javax.swing.JFrame{
 
-	public ButtonListener listener;
+	public SearchButtonListener listener;
 	
 	
     /**
      * Creates new form AEFrame
      */
-    public StudentFrame(ButtonListener listen) {
+    public StudentFrame(SearchButtonListener listen) {
     	this.listener=listen;
         initComponents();
     }
-    
-    public interface ButtonListener{
-		public ArrayList<Actividad> buscarActividad();
-		public ArrayList<Agrupacion> buscarAgrupacion();
-		public ArrayList<Actividad> buscarIniciativa();
-	}
+   
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -91,15 +86,15 @@ public class StudentFrame extends javax.swing.JFrame{
         buscInicText.setText("Iniciativas");
         
         jButtonInic.addActionListener((e)->{
-			listener.buscarIniciativa();
+			listener.buscarIniciativa(keyWords.getText());
 		});
         
         jButtonActiv.addActionListener((e)->{
-			listener.buscarActividad();
+			listener.buscarActividad(keyWords.getText());
 		});
         
         jButtonAgrup.addActionListener((e)->{
-			listener.buscarAgrupacion();
+			listener.buscarAgrupacion(keyWords.getText());
 		});
                 
 
@@ -199,16 +194,16 @@ public class StudentFrame extends javax.swing.JFrame{
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-            	ButtonListener b = new ButtonListener(){
-            		public ArrayList<Actividad> buscarActividad(){
+            	SearchButtonListener b = new SearchButtonListener(){
+            		public ArrayList<Actividad> buscarActividad(String keyWords){
             			System.out.println("Quieres buscar actividad");
 						return null;
             		}
-            		public ArrayList<Agrupacion> buscarAgrupacion(){
+            		public ArrayList<Agrupacion> buscarAgrupacion(String keyWords){
             			System.out.println("Quieres buscar agrupacion");
 						return null;
             		}
-            		public ArrayList<Actividad> buscarIniciativa(){
+            		public ArrayList<Actividad> buscarIniciativa(String keyWords){
             			System.out.println("Quieres buscar iniciativa");
 						return null;
             		}
