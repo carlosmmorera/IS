@@ -10,6 +10,19 @@ import ssusuarios.Agrupacion;
 
 public class Buscador {
 	public List<PalabraClave> palabrasClave = new ArrayList<PalabraClave>();
+	private static volatile Buscador instance = null;
+
+	private Buscador(){
+		
+	}
+	
+	public static Buscador getInstancia(){
+		if(instance==null){
+			instance=new Buscador();
+		}
+		return instance;
+		
+	}
 
 	private int busquedaBinaria(String palabra, int ini, int fin) {
 		if (ini > fin) {

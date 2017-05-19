@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import javax.swing.SwingUtilities;
 
+import ssactividades.Actividad;
 import ssbuscador.Buscable;
 
 public class Prueba {
@@ -101,8 +102,9 @@ public class Prueba {
 				});
 				
 				ArrayList<Buscable> a =new ArrayList<Buscable>();
-				a=iniciarLista(a);				
-			//	ResultadosFrame f=new ResultadosFrame(a);
+				a=iniciarLista(a);	
+				ArrayList<Actividad> b =new ArrayList<Actividad>();
+				ResultadosFrame f=new ResultadosFrame(a);
 				
 			}
 			

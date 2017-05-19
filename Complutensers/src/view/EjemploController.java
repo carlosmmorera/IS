@@ -7,6 +7,7 @@ import javax.swing.JFrame;
 
 import DAO.DAO;
 import ssactividades.Actividad;
+import ssactividades.Evento;
 import ssbuscador.Buscable;
 import ssbuscador.Buscador;
 import ssusuarios.Agrupacion;
@@ -18,13 +19,16 @@ public class EjemploController implements SearchButtonListener{
 	ArrayList<Actividad> activities;
 	
 	public EjemploController(){
+		
 		try{
 			dao = new DAO();
-			activities = dao.getActividades();
+			activities = dao.getActividades();		
+			
 		}
 		catch(IOException e){
 			
 		}
+				
 		JFrame pantalla = new StudentFrame(this);
 		pantalla.setVisible(true);
 	}
@@ -32,12 +36,18 @@ public class EjemploController implements SearchButtonListener{
 	@Override
 	public ArrayList<Actividad> buscarActividad(String keyWords) {
 		String[] pc = keyWords.split(" ");
-		Buscador busc = new Buscador();
+		Buscador busc = Buscador.getInstancia();
 		for(Actividad a : activities) {
 			busc.insertarActividad(a);
-		}
+		}		
 		ArrayList<Actividad> resultados = busc.buscarActividades(pc);
-		new ResultadosFrame(resultados).setVisible(true);
+		
+		ArrayList<Buscable> bu= new ArrayList<Buscable>();
+		for(Actividad a:  resultados){
+			bu.add(a);
+		}
+		
+		new ResultadosFrame(bu).setVisible(true);
 		return null;
 	}
 
@@ -56,6 +66,34 @@ public class EjemploController implements SearchButtonListener{
 	public static void main(String ... args){
 		EjemploController controller = new EjemploController();
 		
+	}
+	
+	//Funcion para hacer pruebas
+	private ArrayList<Actividad> dameUnArrayDeActividades(){
+		ArrayList<Actividad> activ = new ArrayList<Actividad>();
+		ArrayList<String> uno = new ArrayList<String>();
+		uno.add("barbacoa");
+		uno.add("comer");
+		ArrayList<String> dos = new ArrayList<String>();
+		dos.add("ocio");
+		dos.add("comer");
+		activ = new ArrayList<Actividad>();
+		activ.add(new Actividad("barbacoa", "barbacoa con los chavales", 
+				uno, null, null, null, "Verificada"));
+		activ.add(new Actividad("cocinitas", "curso de cocina", 
+				dos, null, null, null, "Verificada"));
+		ArrayList<String> j = new ArrayList<String>();
+		j.add("sabrosura");
+		j.add("comer");
+		ArrayList<String> k = new ArrayList<String>();
+		k.add("algo");
+		k.add("nose");
+		activ.add(new Actividad("sabrosura", "sabroso totalmente", j, null, null,
+				null, "Verificada"));
+		activ.add(new Actividad("algo",
+				"algo, pero no sabemos de que estamos hablando", k, null,
+				null, null, "Verificada"));
+		return activ;
 	}
 
 }

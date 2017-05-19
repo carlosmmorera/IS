@@ -56,7 +56,7 @@ public class FrameSinLog extends JFrame{
 		accBuscador.addActionListener((e)->{	
 			String s = area.getText();
 			String[] pc = s.split(" ");
-			Buscador buscador = new Buscador();
+			Buscador buscador = Buscador.getInstancia();
 			ArrayList<Buscable> act = buscador.buscar(pc);
 			//Con lo obtenido (act) llamaria a mostrarResultados de ResultadosFrame
 			this.setVisible(false);
