@@ -78,7 +78,6 @@ public class Evento implements Buscable{
 	}
 	@Override
 	public String getDescription() {
-		return descripcion;
-		//return descripcion+"\nFecha: "+fecha.toString()+"\nLugar: "+ lugar.getDireccion();
+		return descripcion+"\nFecha: "+fecha.toString()+"\nLugar: "+ lugar.getDireccion();
 	}
 }

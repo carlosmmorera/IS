@@ -19,7 +19,7 @@ public class EjemploController implements SearchButtonListener{
 	ArrayList<Actividad> activities;
 	
 	public EjemploController(){
-		/*
+		
 		try{
 			dao = new DAO();
 			activities = dao.getActividades();		
@@ -27,8 +27,7 @@ public class EjemploController implements SearchButtonListener{
 		}
 		catch(IOException e){
 			
-		}*/
-		activities=this.dameUnArrayDeActividades();
+		}
 				
 		JFrame pantalla = new StudentFrame(this);
 		pantalla.setVisible(true);
