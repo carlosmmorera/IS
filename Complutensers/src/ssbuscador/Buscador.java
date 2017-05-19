@@ -10,7 +10,7 @@ import ssusuarios.Agrupacion;
 
 public class Buscador {
 	public List<PalabraClave> palabrasClave = new ArrayList<PalabraClave>();
-	private static volatile Buscador instance = null;
+	private static Buscador instance = null;
 
 	private Buscador(){
 		
@@ -66,7 +66,7 @@ public class Buscador {
 	public void insertarIniciativa(final Iniciativa ini) {
 		ArrayList<String> pc = ini.obtenerPalabrasClave();
 		for (String palabra : pc) {
-			int pos = busquedaBinaria(palabra, 0, palabrasClave.size());
+			int pos = busquedaBinaria(palabra, 0, palabrasClave.size()-1);
 			if (pos < 0) {
 				PalabraClave nueva = new PalabraClave(palabra);
 				palabrasClave.add(nueva);
@@ -88,7 +88,7 @@ public class Buscador {
 	public void insertarAgrupacion(final Agrupacion ag) {
 		ArrayList<String> pc = ag.obtenerPalabrasClave();
 		for (String palabra : pc) {
-			int pos = busquedaBinaria(palabra, 0, palabrasClave.size());
+			int pos = busquedaBinaria(palabra, 0, palabrasClave.size()-1);
 			if (pos < 0) {
 				PalabraClave nueva = new PalabraClave(palabra);
 				palabrasClave.add(nueva);
@@ -107,7 +107,7 @@ public class Buscador {
 		}
 	}
 
-	public ArrayList<Buscable> buscar(String ... palabras) {
+	public ArrayList<Buscable> buscar(String[] palabras) {
     	HashSet<Buscable> resultados = new HashSet<Buscable>();
     	resultados.addAll(buscarActividades(palabras));
     	resultados.addAll(buscarIniciativas(palabras));
@@ -122,7 +122,7 @@ public class Buscador {
 	public ArrayList<Agrupacion> buscarAgrupaciones(String[] palabras) {
 		HashSet<Agrupacion> resultados = new HashSet<Agrupacion>();
 		for (String p : palabras) {
-			int pos = busquedaBinaria(p, 0, palabrasClave.size());
+			int pos = busquedaBinaria(p, 0, palabrasClave.size()-1);
 			if (pos >= 0) {
 				resultados.addAll(palabrasClave.get(pos).getAgrupaciones());
 			}
@@ -137,7 +137,7 @@ public class Buscador {
 	public ArrayList<Iniciativa> buscarIniciativas(String[] palabras) {
 		HashSet<Iniciativa> resultados = new HashSet<Iniciativa>();
 		for (String p : palabras) {
-			int pos = busquedaBinaria(p, 0, palabrasClave.size());
+			int pos = busquedaBinaria(p, 0, palabrasClave.size()-1);
 			if (pos >= 0) {
 				resultados.addAll(palabrasClave.get(pos).getIniciativas());
 			}
@@ -152,7 +152,7 @@ public class Buscador {
 	public ArrayList<Actividad> buscarActividades(String[] palabras) {
 		HashSet<Actividad> resultados = new HashSet<Actividad>();
 		for (String p : palabras) {
-			int pos = busquedaBinaria(p, 0, palabrasClave.size());
+			int pos = busquedaBinaria(p, 0, palabrasClave.size()-1);
 			if (pos >= 0) {
 				resultados.addAll(palabrasClave.get(pos).getActividades());
 			}

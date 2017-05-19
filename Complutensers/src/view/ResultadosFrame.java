@@ -39,9 +39,10 @@ public class ResultadosFrame extends JFrame{
 		JPanel top = new JPanel(new FlowLayout(FlowLayout.LEFT, 10, 20));
 		if(num==0)
 			top.add(new JLabel("No se han encontrado resultados"));
+		else if(num==1)
+			top.add(new JLabel("Se ha obtenido un resultado:"));
 		else
 			top.add(new JLabel("Se han obtenido " + num + " resultados:"));
-		top.add(new JSeparator());
 		
 		JPanel results = new JPanel();
 		results.setLayout(new BoxLayout(results, BoxLayout.Y_AXIS));
