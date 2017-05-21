@@ -33,4 +33,19 @@ public class Actividad extends Evento implements Buscable {
 	public String toString(){
 		return nombre + '\n' + descripcion +  '\n';
 	}
+	public String guardar(){
+		String guardar=nombre +'\n'+descripcion+'\n';
+		for(int i=0;i<palabrasClave.size()-1;++i)guardar+=palabrasClave.get(i)+" ";
+		guardar+=palabrasClave.get(palabrasClave.size()-1)+'\n';
+		guardar+=lugar.getDireccion()+'\n';
+		guardar+=fecha.guardar()+'\n';
+		for(int i=0;i<alumnosInscritos.size()-1;++i)guardar+=alumnosInscritos.get(i).getName()+" ";
+		if(!alumnosInscritos.isEmpty())guardar+=alumnosInscritos.get(alumnosInscritos.size()-1).getName();
+		guardar+='\n';
+		guardar+=agrupacion.getName()+'\n';
+		if(verificada)guardar+="VERIFICADA";
+		else guardar+="NO VERIFICADA";
+		guardar+='\n';
+		return guardar;
+	}
 }

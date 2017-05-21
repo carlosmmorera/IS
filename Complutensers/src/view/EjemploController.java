@@ -23,7 +23,7 @@ public class EjemploController implements SearchButtonListener{
 		try{
 			dao = new DAO();
 			activities = dao.getActividades();		
-			
+			System.out.println(activities.get(0).guardar());
 		}
 		catch(IOException e){
 			
@@ -70,6 +70,7 @@ public class EjemploController implements SearchButtonListener{
 	
 	//Funcion para hacer pruebas
 	private ArrayList<Actividad> dameUnArrayDeActividades(){
+		
 		ArrayList<Actividad> activ = new ArrayList<Actividad>();
 		ArrayList<String> uno = new ArrayList<String>();
 		uno.add("barbacoa");

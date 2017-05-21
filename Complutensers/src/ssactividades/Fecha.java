@@ -38,5 +38,7 @@ public class Fecha {
     	this.anyo=anyo;
     	this.hora=hora;
     }
-
+    public String guardar(){
+    	return dia+" "+mes+" "+anyo+" "+hora;
+    }
 }
