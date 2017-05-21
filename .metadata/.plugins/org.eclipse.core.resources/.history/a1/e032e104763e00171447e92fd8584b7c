@@ -1,0 +1,53 @@
+package view;
+
+import java.util.ArrayList;
+
+import ssactividades.Actividad;
+import ssusuarios.Agrupacion;
+
+public class AppUi implements SearchButtonListener{
+	private LoginFrame log;
+	private AEFrame ae;
+	private StudentFrame student;
+	private ResultadosFrame results;
+	private FrameSinLog withoutLog;
+	
+	public AppUi(){
+		log = new LoginFrame(new LoginListener(){
+
+			@Override
+			public void loggear(String usuario, String password) {
+				System.out.println(usuario + password);
+				
+			}
+
+			@Override
+			public void entrarSinLog() {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void registrarse(String usuario, String password) {
+				System.out.println(usuario + password);
+				
+			}
+			
+		});
+	}
+	@Override
+	public ArrayList<Actividad> buscarActividad(String keyWords) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public ArrayList<Agrupacion> buscarAgrupacion(String keyWords) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	@Override
+	public ArrayList<Actividad> buscarIniciativa(String keyWords) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+}

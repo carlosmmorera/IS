@@ -82,9 +82,9 @@ public class Prueba {
 				LoginFrame loginframe = new LoginFrame(new LoginListener(){
 
 					@Override
-					public void loggear(String usuario, String password) {
+					public boolean loggear(String usuario, String password) {
 						System.out.println(usuario + password);
-						
+						return true;
 					}
 
 					@Override
@@ -94,9 +94,9 @@ public class Prueba {
 					}
 
 					@Override
-					public void registrarse(String usuario, String password) {
+					public boolean registrarse(String usuario, String password) {
 						System.out.println(usuario + password);
-						
+						return true;
 					}
 					
 				});

@@ -1,0 +1,7 @@
+package view;
+
+import DAO.DAO;
+
+public class Controller {
+	private DAO dao;
+}

@@ -1,0 +1,29 @@
+package view;
+
+import java.io.IOException;
+import java.util.ArrayList;
+
+import ssactividades.Actividad;
+import ssactividades.Iniciativa;
+import ssusuarios.Agrupacion;
+import ssusuarios.Alumno;
+import DAO.DAO;
+
+public class Controller {
+	private DAO dao;
+	private ArrayList<Actividad> actividades;
+	private ArrayList<Iniciativa> iniciativas;
+	private ArrayList<Alumno> alumnos;
+	private ArrayList<Agrupacion> agrupaciones;
+	private AppUi appui;
+	
+	public Controller(){
+		try {
+			dao = new DAO();
+			actividades = dao.getActividades();
+			iniciativas = dao.getIniciativas();
+			alumnos = dao.getAlumnos();
+			agrupaciones = dao.getAgrupaciones();
+		} catch (IOException e) { }
+	}
+}

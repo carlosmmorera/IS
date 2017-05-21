@@ -1,0 +1,8 @@
+package view;
+
+public class AppUi {
+	private LoginFrame log;
+	private AEFrame ae;
+	private StudentFrame student;
+	private ResultadosFrame results;
+}

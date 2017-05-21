@@ -4,12 +4,14 @@ import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.io.IOException;
 
+
 import javax.imageio.ImageIO;
 import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
@@ -64,9 +66,13 @@ public class LoginFrame extends JFrame{
 		register = new JButton("Registrarse");
 		
 		logButton.addActionListener((e)->{
-			loginlist.loggear(user.getText(), password.getText());
-			this.setVisible(false);
-			
+			if (loginlist.loggear(user.getText(), password.getText()))
+				this.setVisible(false);
+			else{
+				JOptionPane.showMessageDialog(this, "Usuario o contraseña "
+						+ "incorrectos, vuelva a intentarlo.",
+						"ERROR", JOptionPane.ERROR_MESSAGE);
+			}
 		});
 		notlogButton.addActionListener((e)->{
 			loginlist.entrarSinLog();
@@ -74,8 +80,15 @@ public class LoginFrame extends JFrame{
 			new FrameSinLog();
 		});
 		register.addActionListener((e)->{
-			loginlist.registrarse(user.getText(), password.getText());
-			this.setVisible(false);
+			if (loginlist.registrarse(user.getText(), password.getText()))
+				JOptionPane.showMessageDialog(this, "Se ha registrado "
+						+ "satisfactoriamente, para utilizar Complutensers "
+						+ "introduzca su usuario y contraseña.",
+						"REGISTRO CORRECTO", JOptionPane.INFORMATION_MESSAGE);
+			else
+				JOptionPane.showMessageDialog(this, "Ese nombre de usuario "
+						+ "ya existe, por favor introduzca otro diferente.",
+						"ERROR", JOptionPane.ERROR_MESSAGE);
 			
 		});
 		botones.add(logButton);

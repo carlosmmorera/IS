@@ -1,0 +1,7 @@
+package view;
+
+public interface LoginListener {
+	void loggear (String usuario, String password);
+	void entrarSinLog();
+	void registrarse(String usuario, String password);
+}

@@ -1,0 +1,48 @@
+package view;
+
+import java.io.IOException;
+import java.util.ArrayList;
+
+import ssactividades.Actividad;
+import ssactividades.Iniciativa;
+import ssusuarios.Agrupacion;
+import ssusuarios.Alumno;
+import DAO.DAO;
+
+public class Controller implements LoginListener{
+	private DAO dao;
+	private ArrayList<Actividad> actividades;
+	private ArrayList<Iniciativa> iniciativas;
+	private ArrayList<Alumno> alumnos;
+	private ArrayList<Agrupacion> agrupaciones;
+	private AppUi appui;
+	
+	public Controller(){
+		try {
+			dao = new DAO();
+			actividades = dao.getActividades();
+			iniciativas = dao.getIniciativas();
+			alumnos = dao.getAlumnos();
+			agrupaciones = dao.getAgrupaciones();
+			appui = new AppUi(this);
+		} catch (IOException e) { }
+	}
+
+	@Override
+	public boolean loggear(String usuario, String password) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public void entrarSinLog() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public boolean registrarse(String usuario, String password) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+}

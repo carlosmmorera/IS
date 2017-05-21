@@ -16,6 +16,7 @@ public abstract class UsuarioConLog implements Usuario {
     public UsuarioConLog(String nombre,String password,String[] actIni){
     	this.nombre=nombre;
     	this.password=password;
+    	this.actIni = actIni;
     	logged = false;
     }
     public void AccederBuzon() {
