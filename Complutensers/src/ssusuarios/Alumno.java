@@ -13,6 +13,7 @@ public class Alumno extends UsuarioConLog {
 
     public void apuntarseActividad(Actividad a) {
         actividadesPendientes.add(a);
+        a.apuntarAlumno(this);
     }
 
     public void apuntarseAsociacion(Agrupacion a) {
