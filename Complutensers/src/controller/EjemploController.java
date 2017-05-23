@@ -6,17 +6,18 @@ import java.util.ArrayList;
 import javax.swing.JFrame;
 
 import DAO.DAO;
-import ssactividades.Actividad;
-import ssactividades.Evento;
-import ssbuscador.Buscable;
-import ssbuscador.Buscador;
-import ssusuarios.Agrupacion;
+import ssactividades.*;
+import ssactividades.map.*;
+import ssbuscador.*;
+import ssusuarios.*;
 import view.ResultadosFrame;
 import view.SearchButtonListener;
 import view.StudentFrame;
 import view.AEFrame.*;
+import view.PropIniFrame;
+import view.PropIniFrame.InitiativeListener;
 
-public class EjemploController implements SearchButtonListener{
+public class EjemploController extends Controller implements SearchButtonListener, InitiativeListener{
 
 	private DAO dao;
 	ArrayList<Actividad> activities;
@@ -32,12 +33,11 @@ public class EjemploController implements SearchButtonListener{
 			
 		}
 				
-		JFrame pantalla = new StudentFrame(this);
-		pantalla.setVisible(true);
+		new StudentFrame(this).setVisible(true);
 	}
 	
 	@Override
-	public ArrayList<Actividad> buscarActividad(String keyWords) {
+	public void buscarActividad(String keyWords) {
 		String[] pc = keyWords.split(" ");
 		Buscador busc = Buscador.getInstancia();
 		for(Actividad a : activities) {
@@ -51,24 +51,16 @@ public class EjemploController implements SearchButtonListener{
 		}
 		
 		new ResultadosFrame(bu).setVisible(true);
-		return null;
 	}
 
 	@Override
-	public ArrayList<Agrupacion> buscarAgrupacion(String keyWords) {
+	public void buscarAgrupacion(String keyWords) {
 		// TODO Auto-generated method stub
-		return null;
 	}
 
 	@Override
-	public ArrayList<Actividad> buscarIniciativa(String keyWords) {
+	public void buscarIniciativa(String keyWords) {
 		// TODO Auto-generated method stub
-		return null;
-	}
-	
-	public static void main(String ... args){
-		EjemploController controller = new EjemploController();
-		
 	}
 	
 	//Funcion para hacer pruebas
@@ -100,4 +92,34 @@ public class EjemploController implements SearchButtonListener{
 		return activ;
 	}
 
+	@Override
+	public void proponerIniciativa() {
+		new PropIniFrame(this).setVisible(true);
+	}
+
+	@Override
+	public void proponerIniciativa(String nombre, String fecha, String lugar, String descr, String hora) {
+		String ddmmaa[] = fecha.split("/");
+		String hhmm[] = hora.split(":");
+		int dia, mes, anyo, hh, mm;
+		dia = Integer.parseInt(ddmmaa[0]);
+		mes = Integer.parseInt(ddmmaa[1]);
+		anyo = Integer.parseInt(ddmmaa[2]);
+		hh = Integer.parseInt(hhmm[0]);
+		mm = Integer.parseInt(hhmm[1]);
+		Fecha fechaIni = new Fecha(dia,mes,anyo,new Hora(hh,mm));
+		Lugar lugarIni = new Lugar(new Coordenada(), lugar);
+		
+		ArrayList<String> palabrasClave = new ArrayList<String>();
+		
+		String[] palsClaveTitulo = nombre.split(" ");
+		String[] palsClaveLugar = lugar.split(" ");
+		for(String s : palsClaveTitulo) if(s.length() > 3) palabrasClave.add(s);
+		for(String s : palsClaveLugar) if(s.length() > 3) palabrasClave.add(s);
+		iniciativas.add(new Iniciativa(nombre,lugarIni,fechaIni,descr,alumnos.get(alumnoLogged),palabrasClave));
+	}
+	
+	public static void main(String ... args){
+		EjemploController controller = new EjemploController();
+	}
 }

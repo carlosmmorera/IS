@@ -1,10 +1,6 @@
 package view;
 
-import java.util.ArrayList;
-
 import controller.Controller;
-import ssactividades.Actividad;
-import ssusuarios.Agrupacion;
 
 public class AppUi implements SearchButtonListener{
 	private LoginFrame log;
@@ -19,18 +15,23 @@ public class AppUi implements SearchButtonListener{
 		log = new LoginFrame(controller);
 	}
 	@Override
-	public ArrayList<Actividad> buscarActividad(String keyWords) {
+	public void buscarActividad(String keyWords) {
 		// TODO Auto-generated method stub
-		return null;
+		return;
 	}
 	@Override
-	public ArrayList<Agrupacion> buscarAgrupacion(String keyWords) {
+	public void buscarAgrupacion(String keyWords) {
 		// TODO Auto-generated method stub
-		return null;
+		return;
 	}
 	@Override
-	public ArrayList<Actividad> buscarIniciativa(String keyWords) {
+	public void buscarIniciativa(String keyWords) {
 		// TODO Auto-generated method stub
-		return null;
+		return;
+	}
+	@Override
+	public void proponerIniciativa() {
+		// TODO Auto-generated method stub
+		
 	}
 }

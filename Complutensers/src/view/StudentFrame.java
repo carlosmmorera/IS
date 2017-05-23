@@ -5,6 +5,7 @@
  */
 package view;
 
+import java.awt.BorderLayout;
 import java.util.ArrayList;
 
 import ssactividades.Actividad;
@@ -48,7 +49,8 @@ public class StudentFrame extends javax.swing.JFrame{
         ucmIcon = new javax.swing.JLabel();
         jButtonAgrup = new javax.swing.JButton();
         buscInicText = new javax.swing.JLabel();
-
+        propIni = new javax.swing.JButton();
+        
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
         setMinimumSize(new java.awt.Dimension(384, 640));
@@ -94,8 +96,17 @@ public class StudentFrame extends javax.swing.JFrame{
 		});
         
         jButtonAgrup.addActionListener((e)->{
-			listener.buscarAgrupacion(keyWords.getText());
+			// Biti: es para probar el propIni | listener.buscarAgrupacion(keyWords.getText());
+        	listener.proponerIniciativa();
+        	setVisible(false);
 		});
+        
+        propIni.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/initiatives.png")));
+        propIni.addActionListener((e)->{
+			listener.proponerIniciativa();
+			setVisible(false);
+		});
+      //  add(propIni,BorderLayout.PAGE_END);
                 
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -195,18 +206,20 @@ public class StudentFrame extends javax.swing.JFrame{
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
             	SearchButtonListener b = new SearchButtonListener(){
-            		public ArrayList<Actividad> buscarActividad(String keyWords){
+            		public void buscarActividad(String keyWords){
             			System.out.println("Quieres buscar actividad");
-						return null;
             		}
-            		public ArrayList<Agrupacion> buscarAgrupacion(String keyWords){
+            		public void buscarAgrupacion(String keyWords){
             			System.out.println("Quieres buscar agrupacion");
-						return null;
             		}
-            		public ArrayList<Actividad> buscarIniciativa(String keyWords){
+            		public void buscarIniciativa(String keyWords){
             			System.out.println("Quieres buscar iniciativa");
-						return null;
             		}
+					@Override
+					public void proponerIniciativa() {
+						// TODO Auto-generated method stub
+						
+					}
             	};
                 new StudentFrame(b).setVisible(true);
             }
@@ -225,5 +238,6 @@ public class StudentFrame extends javax.swing.JFrame{
     private javax.swing.JLabel logeadoComoText;
     private javax.swing.JLabel textOfSearch;
     private javax.swing.JLabel ucmIcon;
+    private javax.swing.JButton propIni;
     // End of variables declaration                   
 }

@@ -12,12 +12,16 @@ import view.LoginListener;
 import DAO.DAO;
 
 public class Controller implements LoginListener{
+	/*
+	 * BITI: he puesto varios a protected para poder usarlos desde el ejemplo
+	 */
+	
 	private DAO dao;
 	private ArrayList<Actividad> actividades;
-	private ArrayList<Iniciativa> iniciativas;
-	private ArrayList<Alumno> alumnos;
+	protected ArrayList<Iniciativa> iniciativas;
+	protected ArrayList<Alumno> alumnos;
 	private ArrayList<Agrupacion> agrupaciones;
-	private int alumnoLogged;
+	protected int alumnoLogged;
 	private int agrupacionLogged;
 	private AppUi appui;
 	

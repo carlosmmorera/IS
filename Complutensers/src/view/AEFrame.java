@@ -171,18 +171,26 @@ public class AEFrame extends javax.swing.JFrame {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
             	SearchButtonListener b = new SearchButtonListener(){
-            		public ArrayList<Actividad> buscarActividad(String keyWords){
-            			System.out.println("Quieres buscar actividad " + keyWords);
-						return null;
-            		}
-            		public ArrayList<Agrupacion> buscarAgrupacion(String keyWords){
-            			System.out.println("Quieres buscar agrupacion " +  keyWords);
-						return null;
-            		}
-            		public ArrayList<Actividad> buscarIniciativa(String keyWords){
-            			System.out.println("Quieres buscar iniciativa " + keyWords);
-						return null;
-            		}
+					@Override
+					public void buscarActividad(String keyWords) {
+						// TODO Auto-generated method stub
+						
+					}
+					@Override
+					public void buscarAgrupacion(String keyWords) {
+						// TODO Auto-generated method stub
+						
+					}
+					@Override
+					public void buscarIniciativa(String keyWords) {
+						// TODO Auto-generated method stub
+						
+					}
+					@Override
+					public void proponerIniciativa() {
+						// TODO Auto-generated method stub
+						
+					}
             	};
             	new AEFrame(b).setVisible(true);
             }
