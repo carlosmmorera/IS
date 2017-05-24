@@ -11,6 +11,7 @@ import ssactividades.map.*;
 import ssbuscador.*;
 import ssusuarios.*;
 import view.ResultadosFrame;
+import view.ResultadosListener;
 import view.SearchButtonListener;
 import view.StudentFrame;
 import view.AEFrame.*;
@@ -57,7 +58,15 @@ public class EjemploController extends Controller implements SearchButtonListene
 			bu.add(a);
 		}
 		
-		new ResultadosFrame(bu).setVisible(true);
+		new ResultadosFrame(bu, new ResultadosListener() {
+
+							@Override
+							public void apuntarse(Actividad a) {
+								System.out.println("apuntarse a " + a.getName());
+
+							}
+
+						}).setVisible(true);
 	}
 
 	@Override
@@ -71,7 +80,7 @@ public class EjemploController extends Controller implements SearchButtonListene
 	}
 	
 	//Funcion para hacer pruebas
-	private ArrayList<Actividad> dameUnArrayDeActividades(){
+	private static ArrayList<Actividad> dameUnArrayDeActividades(){
 		
 		ArrayList<Actividad> activ = new ArrayList<Actividad>();
 		ArrayList<String> uno = new ArrayList<String>();

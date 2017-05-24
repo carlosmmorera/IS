@@ -14,6 +14,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JSeparator;
 import javax.swing.JTextArea;
 
+import ssactividades.Actividad;
 import ssbuscador.Buscable;
 
 /*
@@ -24,10 +25,12 @@ public class ResultadosFrame extends JFrame{
 	ArrayList<Buscable> resultados;
 	JPanel panelresultados;
 	JPanel panelinfo;
+	ResultadosListener rl;
 	
-	public ResultadosFrame(ArrayList<Buscable> a){
+	public ResultadosFrame(ArrayList<Buscable> a, ResultadosListener r){
 		super("Resultados de búsqueda");
 		resultados=a;
+		rl=r;
 		initGUI(a.size());
 		
 	}
@@ -47,14 +50,23 @@ public class ResultadosFrame extends JFrame{
 		JPanel results = new JPanel();
 		results.setLayout(new BoxLayout(results, BoxLayout.Y_AXIS));
 		for(Buscable elem : resultados){
+			
 			JPanel resultado = new JPanel(new FlowLayout(FlowLayout.CENTER, 10, 20));
 			
-			JButton aux = new JButton("+ info");
-			aux.addActionListener((e)->{
+			JButton info = new JButton("+ info");
+			info.addActionListener((e)->{
 				mostrarInfo(elem);
-			});
-			resultado.add(aux);
+			});	
 			resultado.add(new JLabel(elem.getName()));
+			resultado.add(info);
+			
+			if (elem instanceof Actividad) {
+				JButton apuntarse = new JButton("Apuntarse");
+				apuntarse.addActionListener((e) -> {
+					rl.apuntarse((Actividad) elem);
+				});
+				resultado.add(apuntarse);
+			}			
 			
 			results.add(resultado);
 		}
