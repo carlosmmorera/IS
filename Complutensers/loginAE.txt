@@ -1,12 +1,12 @@
 6
 teatruko
 perlita07
-barbacoa futbol conciertuko
+barbacoa conciertuko
 paco cervigon ezequiel
 teatruko teatro ocio cultura
 ascii
 perlaza09
-percha limpieza
+futbol percha limpieza
 paco muniain ezequiel willy
 ascii ocio informatica
 nasa
@@ -21,7 +21,7 @@ mendyloko willy serazul
 youtubersenaccion youtube
 debatemadrileño
 debatientesunidosjamasseranvencidos
-debate
+final debate
 misco fisico ferni mendyloko
 debatemadrileño debate
 librelab

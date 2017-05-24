@@ -21,13 +21,20 @@ public class EjemploController extends Controller implements SearchButtonListene
 
 	private DAO dao;
 	ArrayList<Actividad> activities;
+	ArrayList<Iniciativa> initiatives;
+	ArrayList<Agrupacion> ae;
+	ArrayList<Alumno> alumnos;
 	
 	public EjemploController(){
 		
 		try{
 			dao = new DAO();
 			activities = dao.getActividades();		
-			System.out.println(activities.get(0).guardar());
+			initiatives=dao.getIniciativas();
+			ae=dao.getAgrupaciones();
+			alumnos=dao.getAlumnos();
+			System.out.println(alumnos.get(0).guardar());
+			dao.guardarDAO();
 		}
 		catch(IOException e){
 			

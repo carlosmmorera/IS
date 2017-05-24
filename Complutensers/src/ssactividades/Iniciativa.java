@@ -16,5 +16,14 @@ public class Iniciativa extends Evento implements Buscable {
 		super(nombre,descripcion,palabrasClave,lugar,fecha);
 		this.alumno = alumno;
 	}
+	public String guardar(){
+		String guardar=nombre +'\n'+descripcion+'\n';
+		for(int i=0;i<palabrasClave.size()-1;++i)guardar+=palabrasClave.get(i)+" ";
+		guardar+=palabrasClave.get(palabrasClave.size()-1)+'\n';
+		guardar+=lugar.getDireccion()+'\n';
+		guardar+=fecha.guardar()+'\n';
+		guardar+=alumno.getName()+'\n';
+		return guardar;
+	}
 
 }

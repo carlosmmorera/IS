@@ -35,5 +35,12 @@ public class Alumno extends UsuarioConLog {
 	public void AccederMapaGeneral() {
 		//not implemented
 	}
+	public String guardar(){
+		String guardar=nombre+'\n'+password+'\n';
+		for(int i=0;i<actividadesPendientes.size()-1;++i)guardar+=actividadesPendientes.get(i).getName()+" ";
+		if(!actividadesPendientes.isEmpty())guardar+=actividadesPendientes.get(actividadesPendientes.size()-1).getName();
+		guardar+='\n';
+		return guardar;
+	}
 
 }

@@ -29,6 +29,9 @@ public class Agrupacion extends UsuarioConLog implements Buscable {
 	public void apuntarAlumno(Alumno a){
 		alumno.add(a);
 	}
+	public void apuntarActividad(Actividad a){
+		actividadesPendientes.add(a);
+	}
 	//La actividad que devuelve es para añadirla al array de actividades del DAO
 	public Actividad crearActividad(String name,String desc,String keyWords,
 			String place,String fecha){
@@ -38,12 +41,25 @@ public class Agrupacion extends UsuarioConLog implements Buscable {
 		Actividad act=new Actividad(name,desc,pcList,new Lugar(place),
 				new Fecha(fecha),this,"NO VERIFICADA");
 		actividadesPendientes.add(act);
+		
 		return act;
 	}
 
 	@Override
 	public String getDescription() {
 		return nombre;
+	}
+	public String guardar(){
+		String guardar=nombre +'\n'+password+'\n';
+		for(int i=0;i<actividadesPendientes.size()-1;++i)guardar+=actividadesPendientes.get(i).getName()+" ";
+		if(!actividadesPendientes.isEmpty())guardar+=actividadesPendientes.get(actividadesPendientes.size()-1).getName();
+		guardar+='\n';
+		for(int i=0;i<alumno.size()-1;++i)guardar+=alumno.get(i).getName()+" ";
+		if(!alumno.isEmpty())guardar+=alumno.get(alumno.size()-1).getName();
+		guardar+='\n';
+		for(int i=0;i<palabrasClave.size()-1;++i)guardar+=palabrasClave.get(i)+" ";
+		guardar+=palabrasClave.get(palabrasClave.size()-1)+'\n';		
+		return guardar;
 	}
 
 }

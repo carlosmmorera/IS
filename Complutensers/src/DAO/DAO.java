@@ -1,8 +1,10 @@
 package DAO;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -102,14 +104,15 @@ public class DAO {
 			ArrayList<String> pcList=new ArrayList<String>();
 			for(int j=0;j<pcSplit.length;++j) pcList.add(pcSplit[j]);
 			for(int j=0;j<agrupaciones.size();++j){
-				if(agru.equals(agrupaciones.get(j).getName()))
+				if(agru.equals(agrupaciones.get(j).getName())){
 					actividades.add(new Actividad(name,desc,pcList,new Lugar(lugar),
 							new Fecha(fecha),agrupaciones.get(j),verified));
+					agrupaciones.get(j).apuntarActividad(actividades.get(i));
+					}
 			}
 			for(int j=0;j<alumsSplit.length;++j){
 				for(int k=0;k<alumnos.size();++k){
 					if(alumsSplit[j].equalsIgnoreCase(alumnos.get(k).getName())){
-						actividades.get(i).apuntarAlumno(alumnos.get(k));
 						alumnos.get(k).apuntarseActividad(actividades.get(i));
 					}
 				}
@@ -133,7 +136,31 @@ public class DAO {
 	public ArrayList<Agrupacion> getAgrupaciones(){
 		return agrupaciones;
 	}
-	public void guardarDAO(){
+	public void guardarDAO()throws IOException{
+		BufferedWriter buffAct = new BufferedWriter(new FileWriter(NAME_ACTIVITIES));
+		BufferedWriter buffIni = new BufferedWriter(new FileWriter(NAME_INITIATIVES));
+		BufferedWriter buffAlum = new BufferedWriter(new FileWriter(NAME_STUDENT));
+		BufferedWriter buffAgru = new BufferedWriter(new FileWriter(NAME_AE));
 		
+		buffAct.write(String.valueOf(actividades.size())+'\n');
+		for(int i=0;i<actividades.size();++i)
+			buffAct.write(actividades.get(i).guardar());
+		
+		buffIni.write(String.valueOf(iniciativas.size())+'\n');
+		for(int i=0;i<iniciativas.size();++i)
+			buffIni.write(iniciativas.get(i).guardar());
+		
+		buffAlum.write(String.valueOf(alumnos.size())+'\n');
+		for(int i=0;i<alumnos.size();++i)
+			buffAlum.write(alumnos.get(i).guardar());
+		
+		buffAgru.write(String.valueOf(agrupaciones.size())+'\n');
+		for(int i=0;i<agrupaciones.size();++i)
+			buffAgru.write(agrupaciones.get(i).guardar());
+		
+		buffAct.close();
+		buffIni.close();
+		buffAgru.close();
+		buffAlum.close();
 	}
 }

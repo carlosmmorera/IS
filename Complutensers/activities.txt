@@ -25,9 +25,9 @@ ascii
 VERIFICADA
 conciertuko
 el conciertuko de los de teatruko
-concierto musica 
+concierto musica
 auditorio nacional
-23 06 2017 17:17
+23 6 2017 17:17
 misco willy mendyloko
 teatruko
 NO VERIFICADA
@@ -35,7 +35,7 @@ programmingjam
 pues eso, una jam para programar
 programar jam informatica top
 laboratorios de Google
-19 05 2017 11:01
+19 5 2017 11:01
 paco ferni chuloplaya mendyloko
 librelab
 VERIFICADA
@@ -51,7 +51,7 @@ MrJägger
 Encuentro organizado con Mr Jägger de estudiantes de la UCM
 YouTube UCM Jägger
 plaza de las ciencias
-29 02 2020 7:06
+29 2 2020 7:06
 ojopipa ferni willy
 youtubersenaccion
 NO VERIFICADA
@@ -67,7 +67,7 @@ conferencia
 conferencia un tema muy interesante
 conferencia interesante charla chapa
 facultad de informatica
-01 18 2018 13:15
+1 18 2018 13:15
 cervigon ojopipa chuloplaya serazul willy
 nasa
 VERIFICADA
