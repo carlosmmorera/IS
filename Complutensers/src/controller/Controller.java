@@ -5,13 +5,20 @@ import java.util.ArrayList;
 
 import ssactividades.Actividad;
 import ssactividades.Iniciativa;
+import ssbuscador.Buscable;
+import ssbuscador.Buscador;
 import ssusuarios.Agrupacion;
 import ssusuarios.Alumno;
 import view.AppUi;
 import view.LoginListener;
+import view.ResultadosFrame;
+import view.ResultadosListener;
+import view.PropIniFrame.InitiativeListener;
+import view.SearchButtonListener;
 import DAO.DAO;
 
-public class Controller implements LoginListener{
+public class Controller implements LoginListener, SearchButtonListener, 
+InitiativeListener, ResultadosListener{
 	/*
 	 * BITI: he puesto varios a protected para poder usarlos desde el ejemplo
 	 */
@@ -23,11 +30,13 @@ public class Controller implements LoginListener{
 	private ArrayList<Agrupacion> agrupaciones;
 	protected int alumnoLogged;
 	private int agrupacionLogged;
+	private Buscador buscador;
 	private AppUi appui;
 	
 	public Controller(){
 		alumnoLogged = -1;
 		agrupacionLogged = -1;
+		buscador = Buscador.getInstancia();
 		try {
 			dao = new DAO();
 			actividades = dao.getActividades();
@@ -45,18 +54,22 @@ public class Controller implements LoginListener{
 		if (i == alumnos.size()){
 			while (!agrupaciones.get(j).logIn(usuario, password)) ++j;
 			
-			if (j != agrupaciones.size())
+			if (j != agrupaciones.size()){
 				agrupacionLogged = j;
+				appui.iniciarAEFrame();
+			}
 		}
-		else
+		else{
 			alumnoLogged = i;
+			appui.iniciarStudentFrame();
+		}
 		
 		return alumnoLogged != -1 || agrupacionLogged != -1;
 	}
 
 	@Override
 	public void entrarSinLog() {
-		
+		appui.entrarSinLog();
 	}
 
 	@Override
@@ -69,5 +82,50 @@ public class Controller implements LoginListener{
 		if (registroCorrecto)
 			alumnos.add(new Alumno(usuario, password, null));
 		return registroCorrecto;
+	}
+
+	@Override
+	public void buscarActividad(String keyWords) {
+		String[] pc = keyWords.split(" ");
+		for(Actividad a : actividades) {
+			buscador.insertarActividad(a);
+		}		
+		ArrayList<Actividad> resultados = buscador.buscarActividades(pc);
+		ArrayList<Buscable> bu = new ArrayList<Buscable>();
+		for(Actividad a:  resultados){
+			bu.add(a);
+		}
+		appui.iniciarResultadosFrame(bu);
+	}
+
+	@Override
+	public void buscarAgrupacion(String keyWords) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void buscarIniciativa(String keyWords) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void proponerIniciativa() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void proponerIniciativa(String nombre, String fecha, String lugar,
+			String descr, String hora) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void apuntarse(Actividad a) {
+		// TODO Auto-generated method stub
+		
 	}
 }

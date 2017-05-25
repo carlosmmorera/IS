@@ -1,0 +1,114 @@
+package controller;
+
+import java.io.IOException;
+import java.util.ArrayList;
+
+import ssactividades.Actividad;
+import ssactividades.Iniciativa;
+import ssbuscador.Buscador;
+import ssusuarios.Agrupacion;
+import ssusuarios.Alumno;
+import view.AppUi;
+import view.LoginListener;
+import view.PropIniFrame.InitiativeListener;
+import view.SearchButtonListener;
+import DAO.DAO;
+
+public class Controller implements LoginListener, SearchButtonListener, 
+InitiativeListener{
+	/*
+	 * BITI: he puesto varios a protected para poder usarlos desde el ejemplo
+	 */
+	
+	private DAO dao;
+	private ArrayList<Actividad> actividades;
+	protected ArrayList<Iniciativa> iniciativas;
+	protected ArrayList<Alumno> alumnos;
+	private ArrayList<Agrupacion> agrupaciones;
+	protected int alumnoLogged;
+	private int agrupacionLogged;
+	private Buscador buscador;
+	private AppUi appui;
+	
+	public Controller(){
+		alumnoLogged = -1;
+		agrupacionLogged = -1;
+		buscador = new Buscador();
+		try {
+			dao = new DAO();
+			actividades = dao.getActividades();
+			iniciativas = dao.getIniciativas();
+			alumnos = dao.getAlumnos();
+			agrupaciones = dao.getAgrupaciones();
+			appui = new AppUi(this);
+		} catch (IOException e) { }
+	}
+
+	@Override
+	public boolean loggear(String usuario, String password) {
+		int i = 0, j = 0;
+		while (!alumnos.get(i).logIn(usuario, password)) ++i;
+		if (i == alumnos.size()){
+			while (!agrupaciones.get(j).logIn(usuario, password)) ++j;
+			
+			if (j != agrupaciones.size()){
+				agrupacionLogged = j;
+				appui.iniciarAEFrame();
+			}
+		}
+		else{
+			alumnoLogged = i;
+			appui.iniciarStudentFrame();
+		}
+		
+		return alumnoLogged != -1 || agrupacionLogged != -1;
+	}
+
+	@Override
+	public void entrarSinLog() {
+		appui.entrarSinLog();
+	}
+
+	@Override
+	public boolean registrarse(String usuario, String password) {
+		int i = 0, j = 0;
+		while (!alumnos.get(i).getName().equals(usuario)) ++i;
+		while (!agrupaciones.get(j).getName().equals(usuario)) ++j;
+		
+		boolean registroCorrecto = (i == alumnos.size() && j == agrupaciones.size());
+		if (registroCorrecto)
+			alumnos.add(new Alumno(usuario, password, null));
+		return registroCorrecto;
+	}
+
+	@Override
+	public void buscarActividad(String keyWords) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void buscarAgrupacion(String keyWords) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void buscarIniciativa(String keyWords) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void proponerIniciativa() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void proponerIniciativa(String nombre, String fecha, String lugar,
+			String descr, String hora) {
+		// TODO Auto-generated method stub
+		
+	}
+}

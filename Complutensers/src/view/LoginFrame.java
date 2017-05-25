@@ -77,13 +77,12 @@ public class LoginFrame extends JFrame{
 		notlogButton.addActionListener((e)->{
 			loginlist.entrarSinLog();
 			this.setVisible(false);
-			new FrameSinLog();
 		});
 		register.addActionListener((e)->{
 			if (loginlist.registrarse(user.getText(), password.getText()))
 				JOptionPane.showMessageDialog(this, "Se ha registrado "
-						+ "satisfactoriamente, para utilizar Complutensers "
-						+ "introduzca su usuario y contraseña.",
+						+ "satisfactoriamente, ya puede utilizar Complutensers "
+						+ "introduciendo su usuario y contraseña.",
 						"REGISTRO CORRECTO", JOptionPane.INFORMATION_MESSAGE);
 			else
 				JOptionPane.showMessageDialog(this, "Ese nombre de usuario "

@@ -1,5 +1,0 @@
-package DAO;
-
-public class getStudentsRegisters {
-	final static String NAME = "loginStudent.txt"; 
-}

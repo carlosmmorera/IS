@@ -1,0 +1,27 @@
+package view;
+
+import controller.Controller;
+
+public class AppUi {
+	private LoginFrame log;
+	private AEFrame ae;
+	private StudentFrame student;
+	private ResultadosFrame results;
+	private FrameSinLog withoutLog;
+	private Controller controller;
+	
+	public AppUi(Controller c){
+		controller = c;
+		log = new LoginFrame(controller);
+		ae = null;
+		student = null;
+		results = null;
+		withoutLog = null;
+	}
+	public void entrarSinLog(){
+		withoutLog = new FrameSinLog();
+	}
+	public void iniciarStudentFrame(){
+		student = new StudentFrame();
+	}
+}

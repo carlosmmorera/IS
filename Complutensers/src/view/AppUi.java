@@ -1,37 +1,39 @@
 package view;
 
+import java.util.ArrayList;
+
+import ssactividades.Actividad;
+import ssbuscador.Buscable;
 import controller.Controller;
 
-public class AppUi implements SearchButtonListener{
+public class AppUi {
 	private LoginFrame log;
 	private AEFrame ae;
 	private StudentFrame student;
 	private ResultadosFrame results;
 	private FrameSinLog withoutLog;
+	private PropIniFrame propini;
 	private Controller controller;
 	
-	public AppUi(Controller c){
-		controller = c;
-		log = new LoginFrame(controller);
+	public AppUi(Controller controller){
+		this.controller = controller;
+		log = new LoginFrame(this.controller);
+		ae = null;
+		student = null;
+		results = null;
+		withoutLog = null;
+		propini = null;
 	}
-	@Override
-	public void buscarActividad(String keyWords) {
-		// TODO Auto-generated method stub
-		return;
+	public void entrarSinLog(){
+		withoutLog = new FrameSinLog();
 	}
-	@Override
-	public void buscarAgrupacion(String keyWords) {
-		// TODO Auto-generated method stub
-		return;
+	public void iniciarStudentFrame(){
+		student = new StudentFrame(controller);
 	}
-	@Override
-	public void buscarIniciativa(String keyWords) {
-		// TODO Auto-generated method stub
-		return;
+	public void iniciarAEFrame(){
+		ae = new AEFrame(controller);
 	}
-	@Override
-	public void proponerIniciativa() {
-		// TODO Auto-generated method stub
-		
+	public void iniciarResultadosFrame(ArrayList<Buscable> resultado){
+		results = new ResultadosFrame(resultado, controller);
 	}
 }
