@@ -11,9 +11,14 @@ public class Alumno extends UsuarioConLog {
 		super(nombre, password,actIni);
 	}
 
-    public void apuntarseActividad(Actividad a) {
-        actividadesPendientes.add(a);
-        a.apuntarAlumno(this);
+    public boolean apuntarseActividad(Actividad a) {
+    	if(!actividadesPendientes.contains(a)){
+    		actividadesPendientes.add(a);
+    		a.apuntarAlumno(this);
+    		return true;
+    	}
+    	else
+    		return false;
     }
 
     public void apuntarseAsociacion(Agrupacion a) {
