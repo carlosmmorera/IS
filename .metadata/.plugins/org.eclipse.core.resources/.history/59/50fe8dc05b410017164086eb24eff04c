@@ -11,6 +11,7 @@ import ssusuarios.Agrupacion;
 import ssusuarios.Alumno;
 import view.AppUi;
 import view.LoginListener;
+import view.ResultadosFrame;
 import view.ResultadosListener;
 import view.PropIniFrame.InitiativeListener;
 import view.SearchButtonListener;
@@ -29,11 +30,13 @@ InitiativeListener, ResultadosListener{
 	private ArrayList<Agrupacion> agrupaciones;
 	protected int alumnoLogged;
 	private int agrupacionLogged;
+	private Buscador buscador;
 	private AppUi appui;
 	
 	public Controller(){
 		alumnoLogged = -1;
 		agrupacionLogged = -1;
+		buscador = Buscador.getInstancia();
 		try {
 			dao = new DAO();
 			actividades = dao.getActividades();
@@ -84,9 +87,9 @@ InitiativeListener, ResultadosListener{
 	@Override
 	public void buscarActividad(String keyWords) {
 		String[] pc = keyWords.split(" ");
-		Buscador buscador = Buscador.getInstancia();
-		for(Actividad a : actividades)
+		for(Actividad a : actividades) {
 			buscador.insertarActividad(a);
+		}		
 		ArrayList<Actividad> resultados = buscador.buscarActividades(pc);
 		ArrayList<Buscable> bu = new ArrayList<Buscable>();
 		for(Actividad a:  resultados){
@@ -97,30 +100,14 @@ InitiativeListener, ResultadosListener{
 
 	@Override
 	public void buscarAgrupacion(String keyWords) {
-		String [] pc = keyWords.split(" ");
-		Buscador buscador = Buscador.getInstancia();
-		for (Agrupacion a : agrupaciones)
-			buscador.insertarAgrupacion(a);
-		ArrayList<Agrupacion> resultados = buscador.buscarAgrupaciones(pc);
-		ArrayList<Buscable> bu = new ArrayList<Buscable>();
-		for(Agrupacion a:  resultados){
-			bu.add(a);
-		}
-		appui.iniciarResultadosFrame(bu);
+		// TODO Auto-generated method stub
+		
 	}
 
 	@Override
 	public void buscarIniciativa(String keyWords) {
-		String [] pc = keyWords.split(" ");
-		Buscador buscador = Buscador.getInstancia();
-		for (Iniciativa a : iniciativas)
-			buscador.insertarIniciativa(a);
-		ArrayList<Iniciativa> resultados = buscador.buscarIniciativas(pc);
-		ArrayList<Buscable> bu = new ArrayList<Buscable>();
-		for(Iniciativa a:  resultados){
-			bu.add(a);
-		}
-		appui.iniciarResultadosFrame(bu);
+		// TODO Auto-generated method stub
+		
 	}
 
 	@Override
@@ -138,9 +125,7 @@ InitiativeListener, ResultadosListener{
 
 	@Override
 	public void apuntarse(Actividad a) {
-		if (alumnoLogged != -1){
-			alumnos.get(alumnoLogged).apuntarseActividad(a);
-			appui.mostrarMensajeAlumnoApuntado(a.getName());
-		}
+		// TODO Auto-generated method stub
+		
 	}
 }

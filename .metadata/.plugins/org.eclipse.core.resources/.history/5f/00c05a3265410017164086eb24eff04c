@@ -140,7 +140,6 @@ InitiativeListener, ResultadosListener{
 	public void apuntarse(Actividad a) {
 		if (alumnoLogged != -1){
 			alumnos.get(alumnoLogged).apuntarseActividad(a);
-			appui.mostrarMensajeAlumnoApuntado(a.getName());
 		}
 	}
 }

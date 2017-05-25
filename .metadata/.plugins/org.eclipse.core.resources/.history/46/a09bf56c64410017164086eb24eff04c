@@ -138,9 +138,7 @@ InitiativeListener, ResultadosListener{
 
 	@Override
 	public void apuntarse(Actividad a) {
-		if (alumnoLogged != -1){
-			alumnos.get(alumnoLogged).apuntarseActividad(a);
-			appui.mostrarMensajeAlumnoApuntado(a.getName());
-		}
+		// TODO Auto-generated method stub
+		
 	}
 }

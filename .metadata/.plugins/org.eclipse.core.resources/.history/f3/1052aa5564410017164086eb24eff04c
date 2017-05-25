@@ -123,11 +123,6 @@ InitiativeListener, ResultadosListener{
 		appui.iniciarResultadosFrame(bu);
 	}
 
-	@Override
-	public void proponerIniciativa() {
-		// TODO Auto-generated method stub
-		
-	}
 
 	@Override
 	public void proponerIniciativa(String nombre, String fecha, String lugar,
@@ -138,9 +133,7 @@ InitiativeListener, ResultadosListener{
 
 	@Override
 	public void apuntarse(Actividad a) {
-		if (alumnoLogged != -1){
-			alumnos.get(alumnoLogged).apuntarseActividad(a);
-			appui.mostrarMensajeAlumnoApuntado(a.getName());
-		}
+		// TODO Auto-generated method stub
+		
 	}
 }
