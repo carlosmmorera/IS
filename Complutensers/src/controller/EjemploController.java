@@ -10,15 +10,18 @@ import ssactividades.*;
 import ssactividades.map.*;
 import ssbuscador.*;
 import ssusuarios.*;
+import view.AEFrame;
+import view.CrearActividadFrame;
 import view.ResultadosFrame;
 import view.ResultadosListener;
 import view.SearchButtonListener;
 import view.StudentFrame;
+import view.CrearActividadFrame.ActividadInfoListener;
 import view.AEFrame.*;
 import view.PropIniFrame;
 import view.PropIniFrame.InitiativeListener;
 
-public class EjemploController extends Controller implements SearchButtonListener, InitiativeListener{
+public class EjemploController extends Controller implements SearchButtonListener, InitiativeListener, ActividadInfoListener{
 
 	private DAO dao;
 	ArrayList<Actividad> activities;
@@ -28,7 +31,7 @@ public class EjemploController extends Controller implements SearchButtonListene
 	
 	public EjemploController(){
 		
-		try{
+	/*	try{
 			dao = new DAO();
 			activities = dao.getActividades();		
 			initiatives=dao.getIniciativas();
@@ -40,8 +43,8 @@ public class EjemploController extends Controller implements SearchButtonListene
 		catch(IOException e){
 			
 		}
-				
-		new StudentFrame(this).setVisible(true);
+		new CrearActividadFrame(this).setVisible(true);*/
+		new AEFrame(this).setVisible(true);
 	}
 	
 	@Override

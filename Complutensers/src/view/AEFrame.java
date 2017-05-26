@@ -4,28 +4,21 @@
  * and open the template in the editor.
  */
 package view;
-import java.util.ArrayList;
-import java.util.Observer;
-
-import ssactividades.Actividad;
-import ssusuarios.Agrupacion;
 
 /**
  *
- * 
+ * @author usuario_local
  */
 public class AEFrame extends javax.swing.JFrame {
 
-	SearchButtonListener listener;
-	
-    /**
+  	/**
      * Creates new form AEFrame
      */
-    public AEFrame(SearchButtonListener listen) {
-    	listener = listen;
-        initComponents();
+    public AEFrame(SearchButtonListener listener) {
+    	this.listener = listener;
+    	initComponents();
     }
-    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -35,177 +28,130 @@ public class AEFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">                          
     private void initComponents() {
 
-        keyWords = new javax.swing.JTextField();
-        textOfSearch = new javax.swing.JLabel();
-        header = new javax.swing.JLabel();
-        initiativeButton = new javax.swing.JButton();
-        activityButton = new javax.swing.JButton();
-        buscActText = new javax.swing.JLabel();
-        buscIniText = new javax.swing.JLabel();
-        logeadoComoText = new javax.swing.JLabel();
-        ucmIcon = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        searchWords = new javax.swing.JTextField();
+        activButton = new javax.swing.JButton();
+        iniButton = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        proponerActButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setBackground(new java.awt.Color(255, 255, 255));
-        setMinimumSize(new java.awt.Dimension(384, 640));
-        setSize(new java.awt.Dimension(384, 640));
 
-        textOfSearch.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
-        textOfSearch.setText("Introduzca las palabras clave de su búsqueda, y pulse buscar");
-        textOfSearch.setMaximumSize(new java.awt.Dimension(140, 28));
-        textOfSearch.setMinimumSize(new java.awt.Dimension(140, 28));
-        textOfSearch.setPreferredSize(new java.awt.Dimension(140, 28));
+        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\hlocal\\git\\IS\\Complutensers\\src\\resources\\header.jpg")); // NOI18N
 
-        header.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/header.jpg"))); // NOI18N
-        header.setMaximumSize(new java.awt.Dimension(384, 63));
-        header.setMinimumSize(new java.awt.Dimension(384, 63));
-        header.setPreferredSize(new java.awt.Dimension(384, 63));
+        jLabel2.setIcon(new javax.swing.ImageIcon("C:\\hlocal\\git\\IS\\Complutensers\\src\\resources\\ucm.png")); // NOI18N
 
-        initiativeButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/labuenalupa.png"))); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Tahoma", 2, 11)); // NOI18N
+        jLabel3.setText("Logeado como agrupación");
 
-        activityButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/labuenalupa.png"))); // NOI18N
+        jLabel4.setText("Introduzca las palabras clave de su búsqueda, y pulse buscar");
 
-        buscActText.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
-        buscActText.setText("Búsqueda de actividades");
+        activButton.setIcon(new javax.swing.ImageIcon("C:\\hlocal\\git\\IS\\Complutensers\\src\\resources\\labuenalupa.png")); // NOI18N
 
-        buscIniText.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
-        buscIniText.setText("Búsqueda de iniciativas");
+        iniButton.setIcon(new javax.swing.ImageIcon("C:\\hlocal\\git\\IS\\Complutensers\\src\\resources\\labuenalupa.png")); // NOI18N
 
-        logeadoComoText.setFont(new java.awt.Font("Tahoma", 2, 12)); // NOI18N
-        logeadoComoText.setText("Logeado como asociación");
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
+        jLabel5.setText("Buscar iniciativa");
 
-        ucmIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/resources/ucm.png"))); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
+        jLabel6.setText("Buscar actividad");
 
+        proponerActButton.setText("Crear actividad");
+
+        iniButton.addActionListener((e)->{
+			listener.buscarIniciativa(searchWords.getText());
+		});
+        
+        activButton.addActionListener((e)->{
+			listener.buscarActividad(searchWords.getText());
+		});
+        
+        proponerActButton.addActionListener((e)->{
+        	listener.proponerActividad();
+        	setVisible(false);
+		});
+      
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(header, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(64, 64, 64)
-                .addComponent(activityButton)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(initiativeButton)
-                .addGap(79, 79, 79))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(keyWords, javax.swing.GroupLayout.PREFERRED_SIZE, 283, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(textOfSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 283, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(39, 39, 39)
-                        .addComponent(buscActText)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(buscIniText)))
-                .addGap(49, 49, 49))
             .addGroup(layout.createSequentialGroup()
-                .addGap(115, 115, 115)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(ucmIcon, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(logeadoComoText, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(109, 109, 109)
+                        .addComponent(jLabel2))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(121, 121, 121)
+                        .addComponent(jLabel3)))
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(36, 36, 36)
+                        .addComponent(jLabel4))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(29, 29, 29)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(searchWords, javax.swing.GroupLayout.PREFERRED_SIZE, 331, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(53, 53, 53)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(activButton)
+                                    .addComponent(jLabel6))
+                                .addGap(70, 70, 70)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(iniButton)
+                                    .addComponent(jLabel5))))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(proponerActButton)
+                .addGap(130, 130, 130))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(header, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(53, 53, 53)
-                .addComponent(logeadoComoText)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
-                .addComponent(ucmIcon)
-                .addGap(42, 42, 42)
+                .addComponent(jLabel1)
+                .addGap(33, 33, 33)
+                .addComponent(jLabel3)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel2)
+                .addGap(32, 32, 32)
+                .addComponent(jLabel4)
+                .addGap(26, 26, 26)
+                .addComponent(searchWords, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(45, 45, 45)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(textOfSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(keyWords, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(53, 53, 53)
-                        .addComponent(initiativeButton))
-                    .addComponent(activityButton, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addComponent(activButton, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(iniButton, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(buscIniText)
-                    .addComponent(buscActText, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(126, Short.MAX_VALUE))
+                    .addComponent(jLabel5)
+                    .addComponent(jLabel6))
+                .addGap(68, 68, 68)
+                .addComponent(proponerActButton)
+                .addGap(0, 91, Short.MAX_VALUE))
         );
-        
-        activityButton.addActionListener((ae)->listener.buscarActividad(keyWords.getText()));
-        initiativeButton.addActionListener( (a) -> listener.buscarIniciativa(keyWords.getText()));
-              
-        
+
         pack();
-    }// </editor-fold>     
-    
-    
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(AEFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(AEFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(AEFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(AEFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-            	SearchButtonListener b = new SearchButtonListener(){
-					@Override
-					public void buscarActividad(String keyWords) {
-						// TODO Auto-generated method stub
-						
-					}
-					@Override
-					public void buscarAgrupacion(String keyWords) {
-						// TODO Auto-generated method stub
-						
-					}
-					@Override
-					public void buscarIniciativa(String keyWords) {
-						// TODO Auto-generated method stub
-						
-					}
-					@Override
-					public void proponerIniciativa() {
-						// TODO Auto-generated method stub
-						
-					}
-            	};
-            	new AEFrame(b).setVisible(true);
-            }
-        });
-    }
+    }// </editor-fold>                        
 
     // Variables declaration - do not modify                     
-    private javax.swing.JLabel buscActText;
-    private javax.swing.JLabel buscIniText;
-    private javax.swing.JLabel header;
-    private javax.swing.JButton initiativeButton;
-    private javax.swing.JButton activityButton;
-    private javax.swing.JTextField keyWords;
-    private javax.swing.JLabel logeadoComoText;
-    private javax.swing.JLabel textOfSearch;
-    private javax.swing.JLabel ucmIcon;
+    private javax.swing.JButton activButton;
+    private javax.swing.JButton iniButton;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JButton proponerActButton;
+    private javax.swing.JTextField searchWords;
+    private SearchButtonListener listener;
     // End of variables declaration                   
 }

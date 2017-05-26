@@ -6,6 +6,7 @@ import javax.swing.SwingUtilities;
 
 import ssactividades.Actividad;
 import ssbuscador.Buscable;
+import ssusuarios.Agrupacion;
 
 public class Prueba {
 
@@ -50,9 +51,15 @@ public class Prueba {
 						new ResultadosListener() {
 
 							@Override
-							public void apuntarse(Actividad a) {
+							public void apuntarseAct(Actividad a) {
 								System.out.println("apuntarse a " + a.getName());
 
+							}
+
+							@Override
+							public void apuntarseAgrup(Agrupacion elem) {
+								System.out.println("apuntarse a " + elem.getName());
+								
 							}
 
 						});

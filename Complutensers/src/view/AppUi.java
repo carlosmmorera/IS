@@ -60,4 +60,7 @@ public class AppUi {
 	public void iniciarPropIniFrame(){
 		new PropIniFrame(controller).setVisible(true);
 	}
+	public void iniciarActIniFrame(){
+		new CrearActividadFrame(controller).setVisible(true);
+	}
 }

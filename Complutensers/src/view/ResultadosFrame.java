@@ -16,6 +16,7 @@ import javax.swing.JTextArea;
 
 import ssactividades.Actividad;
 import ssbuscador.Buscable;
+import ssusuarios.Agrupacion;
 
 /*
  * para ver como queda ejecutar la clase prueba
@@ -63,10 +64,17 @@ public class ResultadosFrame extends JFrame{
 			if (elem instanceof Actividad) {
 				JButton apuntarse = new JButton("Apuntarse");
 				apuntarse.addActionListener((e) -> {
-					rl.apuntarse((Actividad) elem);
+					rl.apuntarseAct((Actividad) elem);
 				});
 				resultado.add(apuntarse);
-			}			
+			}
+			else if(elem instanceof Agrupacion){
+				JButton apuntarse = new JButton("Apuntarse");
+				apuntarse.addActionListener((e) -> {
+					rl.apuntarseAgrup((Agrupacion) elem);
+				});
+				resultado.add(apuntarse);
+			}
 			
 			results.add(resultado);
 		}

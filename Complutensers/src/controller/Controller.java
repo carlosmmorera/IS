@@ -23,11 +23,12 @@ import view.LoginListener;
 import view.ResultadosListener;
 import view.PropIniFrame.InitiativeListener;
 import view.SearchButtonListener;
+import view.CrearActividadFrame.ActividadInfoListener;
 import view.exitListener;
 import DAO.DAO;
 
 public class Controller implements LoginListener, SearchButtonListener, 
-InitiativeListener, ResultadosListener, exitListener, WindowListener{
+InitiativeListener, ResultadosListener, exitListener, WindowListener, ActividadInfoListener{
 	/*
 	 * BITI: he puesto varios a protected para poder usarlos desde el ejemplo
 	 */
@@ -162,7 +163,7 @@ InitiativeListener, ResultadosListener, exitListener, WindowListener{
 	}
 
 	@Override
-	public void apuntarse(Actividad a) {
+	public void apuntarseAct(Actividad a) {
 		if (alumnoLogged != -1){
 			if (alumnos.get(alumnoLogged).apuntarseActividad(a))
 				appui.mostrarMensajeAlumnoApuntado(a.getName());
@@ -210,5 +211,20 @@ InitiativeListener, ResultadosListener, exitListener, WindowListener{
 
 	@Override
 	public void windowOpened(WindowEvent e) {
+	}
+
+	@Override
+	public void registrarActividad(String name, String desc, String keyWords,
+			String place, String dia, String mes, String anyo, String hora,
+			String min) {
+		Fecha fecha = new Fecha(Integer.parseInt(dia), Integer.parseInt(mes),
+				Integer.parseInt(anyo), new Hora(Integer.parseInt(hora),Integer.parseInt(min)));
+		Actividad a = agrupaciones.get(agrupacionLogged).crearActividad(name, desc, keyWords, place, fecha);
+		actividades.add(a);
+	}
+
+	@Override
+	public void proponerActividad() {
+		appui.iniciarActIniFrame();
 	}
 }

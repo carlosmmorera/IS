@@ -1,8 +1,12 @@
 package view;
 
 import ssactividades.Actividad;
+import ssusuarios.Agrupacion;
 
 public interface ResultadosListener {
-	//Ruben: apuntarse solo a actividades o tambien a agrupaciones?
-	void apuntarse(Actividad a);
+	
+	void apuntarseAct(Actividad a);
+
+	void apuntarseAgrup(Agrupacion elem);
+	
 }

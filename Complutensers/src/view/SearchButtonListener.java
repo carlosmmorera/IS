@@ -5,4 +5,5 @@ public interface SearchButtonListener {
 		public void buscarAgrupacion(String keyWords);
 		public void buscarIniciativa(String keyWords);
 		public void proponerIniciativa();
+		public void proponerActividad();
 }

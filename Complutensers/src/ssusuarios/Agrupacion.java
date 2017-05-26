@@ -34,12 +34,12 @@ public class Agrupacion extends UsuarioConLog implements Buscable {
 	}
 	//La actividad que devuelve es para añadirla al array de actividades del DAO
 	public Actividad crearActividad(String name,String desc,String keyWords,
-			String place,String fecha){
+			String place,Fecha fecha){
 		String[]pcSplit=keyWords.split(" ");
 		ArrayList<String> pcList=new ArrayList<String>();
 		for(int i=0;i<pcSplit.length;++i)pcList.add(pcSplit[i]);
 		Actividad act=new Actividad(name,desc,pcList,new Lugar(place),
-				new Fecha(fecha),this,"NO VERIFICADA");
+				fecha,this,"NO VERIFICADA");
 		actividadesPendientes.add(act);
 		
 		return act;
