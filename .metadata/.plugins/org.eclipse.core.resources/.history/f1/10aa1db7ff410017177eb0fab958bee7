@@ -1,0 +1,83 @@
+package view;
+
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
+import java.util.ArrayList;
+
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+
+import ssbuscador.Buscable;
+import controller.Controller;
+
+public class AppUi {
+	private LoginFrame log;
+	private AEFrame ae;
+	private StudentFrame student;
+	private ResultadosFrame results;
+	private FrameSinLog withoutLog;
+	private PropIniFrame propini;
+	private Controller controller;
+	
+	public AppUi(Controller controller){
+		this.controller = controller;
+		log = new LoginFrame(this.controller);
+		ae = null;
+		student = null;
+		results = null;
+		withoutLog = null;
+		propini = null;
+		
+		log.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
+		log.addWindowListener(new WindowListener(){
+
+			@Override
+			public void windowActivated(WindowEvent arg0) {
+			}
+
+			@Override
+			public void windowClosed(WindowEvent arg0) {
+			}
+
+			@Override
+			public void windowClosing(WindowEvent arg0) {
+				AppUi.this.controller.exitApp();
+			}
+
+			@Override
+			public void windowDeactivated(WindowEvent arg0) {
+			}
+
+			@Override
+			public void windowDeiconified(WindowEvent arg0) {
+			}
+
+			@Override
+			public void windowIconified(WindowEvent arg0) {
+			}
+
+			@Override
+			public void windowOpened(WindowEvent arg0) {
+			}
+		});
+	}
+	public void entrarSinLog(){
+		withoutLog = new FrameSinLog();
+		withoutLog.setVisible(true);
+	}
+	public void iniciarStudentFrame(){
+		student = new StudentFrame(controller);
+		student.setVisible(true);
+	}
+	public void iniciarAEFrame(){
+		ae = new AEFrame(controller);
+	}
+	public void iniciarResultadosFrame(ArrayList<Buscable> resultado){
+		results = new ResultadosFrame(resultado, controller);
+		results.setVisible(true);
+	}
+	public void mostrarMensajeAlumnoApuntado(String nombreActividad){
+		JFrame frame = new JFrame();
+		JOptionPane.showMessageDialog(frame, "Te has apuntado a " + nombreActividad);
+	}
+}

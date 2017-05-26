@@ -1,10 +1,19 @@
 package controller;
 
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+
 import ssactividades.Actividad;
+import ssactividades.Fecha;
+import ssactividades.Hora;
 import ssactividades.Iniciativa;
+import ssactividades.map.Coordenada;
+import ssactividades.map.Lugar;
 import ssbuscador.Buscable;
 import ssbuscador.Buscador;
 import ssusuarios.Agrupacion;
@@ -14,10 +23,11 @@ import view.LoginListener;
 import view.ResultadosListener;
 import view.PropIniFrame.InitiativeListener;
 import view.SearchButtonListener;
+import view.exitListener;
 import DAO.DAO;
 
 public class Controller implements LoginListener, SearchButtonListener, 
-InitiativeListener, ResultadosListener{
+InitiativeListener, ResultadosListener, exitListener, WindowListener{
 	/*
 	 * BITI: he puesto varios a protected para poder usarlos desde el ejemplo
 	 */
@@ -125,22 +135,80 @@ InitiativeListener, ResultadosListener{
 
 	@Override
 	public void proponerIniciativa() {
-		// TODO Auto-generated method stub
-		
+		appui.iniciarPropIniFrame();
 	}
 
 	@Override
 	public void proponerIniciativa(String nombre, String fecha, String lugar,
 			String descr, String hora) {
-		// TODO Auto-generated method stub
+		String ddmmaa[] = fecha.split("/");
+		String hhmm[] = hora.split(":");
+		int dia, mes, anyo, hh, mm;
+		dia = Integer.parseInt(ddmmaa[0]);
+		mes = Integer.parseInt(ddmmaa[1]);
+		anyo = Integer.parseInt(ddmmaa[2]);
+		hh = Integer.parseInt(hhmm[0]);
+		mm = Integer.parseInt(hhmm[1]);
+		Fecha fechaIni = new Fecha(dia,mes,anyo,new Hora(hh,mm));
+		Lugar lugarIni = new Lugar(new Coordenada(), lugar);
 		
+		ArrayList<String> palabrasClave = new ArrayList<String>();
+		
+		String[] palsClaveTitulo = nombre.split(" ");
+		String[] palsClaveLugar = lugar.split(" ");
+		for(String s : palsClaveTitulo) if(s.length() > 3) palabrasClave.add(s);
+		for(String s : palsClaveLugar) if(s.length() > 3) palabrasClave.add(s);
+		iniciativas.add(new Iniciativa(nombre,lugarIni,fechaIni,descr,alumnos.get(alumnoLogged),palabrasClave));
 	}
 
 	@Override
 	public void apuntarse(Actividad a) {
 		if (alumnoLogged != -1){
-			alumnos.get(alumnoLogged).apuntarseActividad(a);
-			appui.mostrarMensajeAlumnoApuntado(a.getName());
+			if (alumnos.get(alumnoLogged).apuntarseActividad(a))
+				appui.mostrarMensajeAlumnoApuntado(a.getName());
 		}
+	}
+
+	@Override
+	public void exitApp() {
+		try {
+			dao.guardarDAO();
+		} catch (IOException e) { }
+		System.exit(0);
+	}
+
+	@Override
+	public void windowActivated(WindowEvent e) {
+	}
+
+	@Override
+	public void windowClosed(WindowEvent e) {
+	}
+
+	@Override
+	public void windowClosing(WindowEvent e) {
+		int n = JOptionPane.showOptionDialog(new JFrame(),
+				"Are sure you want to quit?", "Quit",
+				JOptionPane.YES_NO_OPTION, JOptionPane.QUESTION_MESSAGE, null,
+				null, null);
+		if (n == 0) {
+			Controller.this.exitApp();
+		}
+	}
+
+	@Override
+	public void windowDeactivated(WindowEvent e) {
+	}
+
+	@Override
+	public void windowDeiconified(WindowEvent e) {
+	}
+
+	@Override
+	public void windowIconified(WindowEvent e) {
+	}
+
+	@Override
+	public void windowOpened(WindowEvent e) {
 	}
 }

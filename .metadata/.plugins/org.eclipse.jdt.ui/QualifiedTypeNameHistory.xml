@@ -7,4 +7,7 @@
 <fullyQualifiedTypeName name="ssbuscador.Buscable"/>
 <fullyQualifiedTypeName name="javax.swing.JFrame"/>
 <fullyQualifiedTypeName name="javax.swing.JOptionPane"/>
+<fullyQualifiedTypeName name="view.exitListener"/>
+<fullyQualifiedTypeName name="controller.Controller"/>
+<fullyQualifiedTypeName name="java.awt.event.WindowListener"/>
 </qualifiedTypeNameHistroy>
