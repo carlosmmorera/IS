@@ -23,9 +23,11 @@ import ssbuscador.*;
 public class FrameSinLog extends JFrame{
 
 	JButton accBuscador;
+	SearchButtonListener searchList;
 	
-	public FrameSinLog(){
+	public FrameSinLog(SearchButtonListener searchList){
 		super("Acceder sin Log");
+		this.searchList = searchList;
 		initGUI();
 	}
 	/**
@@ -55,15 +57,7 @@ public class FrameSinLog extends JFrame{
 		accBuscador = new JButton("Acceder al buscador");
 		accBuscador.addActionListener((e)->{	
 			String s = area.getText();
-			String[] pc = s.split(" ");
-			Buscador buscador = Buscador.getInstancia();
-			ArrayList<Buscable> act = buscador.buscar(pc);
-			//Con lo obtenido (act) llamaria a mostrarResultados de ResultadosFrame
-			this.setVisible(false);
-			//Aquí se llama a mostrar buscador
-			
-			
-			
+			searchList.buscarGeneral(s);
 		});
 		JPanel boton = new JPanel(new FlowLayout(FlowLayout.CENTER, 10, 20));
 		boton.setSize(new Dimension(500,100));			

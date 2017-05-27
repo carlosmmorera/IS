@@ -161,15 +161,6 @@ InitiativeListener, ResultadosListener, exitListener, WindowListener, ActividadI
 		for(String s : palsClaveLugar) if(s.length() > 3) palabrasClave.add(s);
 		iniciativas.add(new Iniciativa(nombre,lugarIni,fechaIni,descr,alumnos.get(alumnoLogged),palabrasClave));
 	}
-
-	@Override
-	public void apuntarseAct(Actividad a) {
-		if (alumnoLogged != -1){
-			if (alumnos.get(alumnoLogged).apuntarseActividad(a))
-				appui.mostrarMensajeAlumnoApuntado(a.getName());
-		}
-	}
-
 	@Override
 	public void exitApp() {
 		try {
@@ -226,5 +217,27 @@ InitiativeListener, ResultadosListener, exitListener, WindowListener, ActividadI
 	@Override
 	public void proponerActividad() {
 		appui.iniciarActIniFrame();
+	}
+
+	@Override
+	public void apuntarseAgrup(Agrupacion elem) {
+		elem.apuntarAlumno(alumnos.get(alumnoLogged));
+		appui.mostrarMensaje("Te has apuntado a " + elem.getName());
+	}
+
+	@Override
+	public void apuntarseAct(Actividad a) {
+		if (alumnoLogged != -1){
+			if (alumnos.get(alumnoLogged).apuntarseActividad(a))
+				appui.mostrarMensaje("Te has apuntado a " + a.getName());
+		}
+	}
+
+	@Override
+	public void buscarGeneral(String keyWords) {
+		String[] pc = keyWords.split(" ");
+		Buscador buscador = Buscador.getInstancia();
+		ArrayList<Buscable> act = buscador.buscar(pc);
+		appui.iniciarResultadosFrame(act);
 	}
 }

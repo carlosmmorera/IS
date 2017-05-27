@@ -28,6 +28,7 @@ public class Agrupacion extends UsuarioConLog implements Buscable {
 	}
 	public void apuntarAlumno(Alumno a){
 		alumno.add(a);
+		a.apuntarseAsociacion(this);
 	}
 	public void apuntarActividad(Actividad a){
 		actividadesPendientes.add(a);

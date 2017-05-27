@@ -32,18 +32,21 @@ public class AppUi {
 		log.addWindowListener(controller);
 	}
 	public void entrarSinLog(){
-		withoutLog = new FrameSinLog();
+		log.setVisible(false);
+		withoutLog = new FrameSinLog(controller);
 		withoutLog.setVisible(true);
 		withoutLog.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		withoutLog.addWindowListener(controller);
 	}
 	public void iniciarStudentFrame(){
+		log.setVisible(false);
 		student = new StudentFrame(controller);
 		student.setVisible(true);
 		student.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		student.addWindowListener(controller);
 	}
 	public void iniciarAEFrame(){
+		log.setVisible(false);
 		ae = new AEFrame(controller);
 		ae.setVisible(true);
 		ae.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
@@ -53,9 +56,9 @@ public class AppUi {
 		results = new ResultadosFrame(resultado, controller);
 		results.setVisible(true);
 	}
-	public void mostrarMensajeAlumnoApuntado(String nombreActividad){
+	public void mostrarMensaje(String mensaje){
 		JFrame frame = new JFrame();
-		JOptionPane.showMessageDialog(frame, "Te has apuntado a " + nombreActividad);
+		JOptionPane.showMessageDialog(frame, mensaje);
 	}
 	public void iniciarPropIniFrame(){
 		new PropIniFrame(controller).setVisible(true);
