@@ -60,7 +60,7 @@ InitiativeListener, ResultadosListener, exitListener, WindowListener, ActividadI
 		int i = 0, j = 0;
 		while (i < alumnos.size() && !alumnos.get(i).logIn(usuario, password)) ++i;
 		if (i == alumnos.size()){
-			while (j < agrupaciones.size() && !agrupaciones.get(j).logIn(usuario, password)) ++j;
+			while (!agrupaciones.get(j).logIn(usuario, password)) ++j;
 			
 			if (j != agrupaciones.size()){
 				agrupacionLogged = j;
@@ -83,8 +83,8 @@ InitiativeListener, ResultadosListener, exitListener, WindowListener, ActividadI
 	@Override
 	public boolean registrarse(String usuario, String password) {
 		int i = 0, j = 0;
-		while (i < alumnos.size() && !alumnos.get(i).getName().equals(usuario)) ++i;
-		while (j < agrupaciones.size() && !agrupaciones.get(j).getName().equals(usuario)) ++j;
+		while (!alumnos.get(i).getName().equals(usuario)) ++i;
+		while (!agrupaciones.get(j).getName().equals(usuario)) ++j;
 		
 		boolean registroCorrecto = (i == alumnos.size() && j == agrupaciones.size());
 		if (registroCorrecto)

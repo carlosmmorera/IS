@@ -84,7 +84,7 @@ InitiativeListener, ResultadosListener, exitListener, WindowListener, ActividadI
 	public boolean registrarse(String usuario, String password) {
 		int i = 0, j = 0;
 		while (i < alumnos.size() && !alumnos.get(i).getName().equals(usuario)) ++i;
-		while (j < agrupaciones.size() && !agrupaciones.get(j).getName().equals(usuario)) ++j;
+		while (!agrupaciones.get(j).getName().equals(usuario)) ++j;
 		
 		boolean registroCorrecto = (i == alumnos.size() && j == agrupaciones.size());
 		if (registroCorrecto)
