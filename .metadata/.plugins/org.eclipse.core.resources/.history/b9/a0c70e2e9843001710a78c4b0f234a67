@@ -23,7 +23,7 @@ public abstract class UsuarioConLog implements Usuario {
     }
 
     public boolean logIn(String nombre,String password) {
-    	logged = this.nombre.equals(nombre) && this.password.equals(password);
+    	logged = this.nombre == nombre && this.password == password;
     	return logged;
     }
 
