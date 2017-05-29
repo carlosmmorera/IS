@@ -9,15 +9,19 @@ import javax.swing.JOptionPane;
 
 import ssbuscador.Buscable;
 import controller.Controller;
+import ssactividades.Actividad;
+import view.ModificarFrame;
 
 public class AppUi {
 	private LoginFrame log;
 	private AEFrame ae;
 	private StudentFrame student;
 	private ResultadosFrame results;
+	private HistorialFrame historial;
 	private FrameSinLog withoutLog;
 	private PropIniFrame propini;
 	private Controller controller;
+	private ModificarFrame modact;
 	
 	public AppUi(Controller controller){
 		this.controller = controller;
@@ -45,9 +49,9 @@ public class AppUi {
 		student.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		student.addWindowListener(controller);
 	}
-	public void iniciarAEFrame(){
+	public void iniciarAEFrame(String nombre){
 		log.setVisible(false);
-		ae = new AEFrame(controller);
+		ae = new AEFrame(controller, nombre);
 		ae.setVisible(true);
 		ae.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		ae.addWindowListener(controller);
@@ -56,6 +60,17 @@ public class AppUi {
 		results = new ResultadosFrame(resultado, controller);
 		results.setVisible(true);
 	}
+	
+	public void iniciarHistorialFrame(String nombre, ArrayList<Actividad> actividades){
+		historial = new HistorialFrame(actividades, nombre, controller);
+		historial.setVisible(true);
+	}
+	
+	public void modificarActividad(Actividad act){
+		modact = new ModificarFrame(act, controller);
+		modact.setVisible(true);
+	}
+	
 	public void mostrarMensaje(String mensaje){
 		JFrame frame = new JFrame();
 		JOptionPane.showMessageDialog(frame, mensaje);

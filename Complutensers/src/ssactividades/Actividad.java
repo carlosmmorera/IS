@@ -30,6 +30,14 @@ public class Actividad extends Evento implements Buscable {
 		alumnosInscritos.add(al);
 	}
 
+	public Fecha getFecha(){
+		return fecha;
+	}
+	
+	public Agrupacion getAgrupacion(){
+		return agrupacion;
+	}
+
 	public String toString(){
 		return nombre + '\n' + descripcion +  '\n';
 	}

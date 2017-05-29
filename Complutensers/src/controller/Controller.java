@@ -20,15 +20,18 @@ import ssusuarios.Agrupacion;
 import ssusuarios.Alumno;
 import view.AppUi;
 import view.LoginListener;
+import view.ModificarListener;
 import view.ResultadosListener;
 import view.PropIniFrame.InitiativeListener;
 import view.SearchButtonListener;
 import view.CrearActividadFrame.ActividadInfoListener;
+import view.HistorialFrame;
+import view.HistorialListener;
 import view.exitListener;
 import DAO.DAO;
 
-public class Controller implements LoginListener, SearchButtonListener, 
-InitiativeListener, ResultadosListener, exitListener, WindowListener, ActividadInfoListener{
+public class Controller implements LoginListener, ModificarListener, SearchButtonListener, 
+InitiativeListener, ResultadosListener, exitListener, WindowListener, ActividadInfoListener, HistorialListener{
 	/*
 	 * BITI: he puesto varios a protected para poder usarlos desde el ejemplo
 	 */
@@ -64,7 +67,7 @@ InitiativeListener, ResultadosListener, exitListener, WindowListener, ActividadI
 			
 			if (j != agrupaciones.size()){
 				agrupacionLogged = j;
-				appui.iniciarAEFrame();
+				appui.iniciarAEFrame(usuario);
 			}
 		}
 		else{
@@ -118,6 +121,29 @@ InitiativeListener, ResultadosListener, exitListener, WindowListener, ActividadI
 			bu.add(a);
 		}
 		appui.iniciarResultadosFrame(bu);
+	}
+	
+	@Override
+	public void mostrarHistorial(String nombre) {
+		appui.iniciarHistorialFrame(nombre, actividades);
+		
+	}
+	
+	@Override
+	public void modificarActividad(Actividad a) {
+		appui.modificarActividad(a);
+	}
+	
+	@Override
+	public void Modificar(Actividad a) {
+		for(Actividad act : actividades){
+			if(a.getName().equals(act.getName())){
+			act.ModificarNombre(a.getName());
+			act.modificarDescripcion(a.getDescription());
+			act.modificarFecha(a.getFecha());	
+			act.modificarLugar(act.getLugar());
+			}
+		}
 	}
 
 	@Override
@@ -240,4 +266,8 @@ InitiativeListener, ResultadosListener, exitListener, WindowListener, ActividadI
 		ArrayList<Buscable> act = buscador.buscar(pc);
 		appui.iniciarResultadosFrame(act);
 	}
+
+	
+	
+
 }

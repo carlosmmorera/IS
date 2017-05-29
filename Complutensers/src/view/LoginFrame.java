@@ -72,6 +72,8 @@ public class LoginFrame extends JFrame{
 				JOptionPane.showMessageDialog(this, "Usuario o contraseña "
 						+ "incorrectos, vuelva a intentarlo.",
 						"ERROR", JOptionPane.ERROR_MESSAGE);
+				user.setText("");
+				password.setText("");
 			}
 		});
 		notlogButton.addActionListener((e)->{
