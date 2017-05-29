@@ -24,13 +24,8 @@ public class HistorialFrame extends javax.swing.JFrame {
 	private JPanel panelHistorial;
 	private JPanel panelinfo;
 	
-	public HistorialFrame(ArrayList<Actividad> actividades, String nombre, Controller controller){
-		arract = new ArrayList<Actividad>();
-		for(Actividad act : actividades){
-			if(act.getAgrupacion().getName().equals(nombre)){
-				arract.add(act);
-			}
-		}
+	public HistorialFrame(ArrayList<Actividad> actividades,  Controller controller){
+		arract =actividades;
 		hl = controller;
 		initGUI(arract.size());
 	}

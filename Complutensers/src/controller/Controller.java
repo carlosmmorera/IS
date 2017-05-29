@@ -67,7 +67,7 @@ InitiativeListener, ResultadosListener, exitListener, WindowListener, ActividadI
 			
 			if (j != agrupaciones.size()){
 				agrupacionLogged = j;
-				appui.iniciarAEFrame(usuario);
+				appui.iniciarAEFrame();
 			}
 		}
 		else{
@@ -124,8 +124,14 @@ InitiativeListener, ResultadosListener, exitListener, WindowListener, ActividadI
 	}
 	
 	@Override
-	public void mostrarHistorial(String nombre) {
-		appui.iniciarHistorialFrame(nombre, actividades);
+	public void mostrarHistorial() {
+		ArrayList<Actividad> arract = new ArrayList<Actividad>();
+		for(Actividad act : actividades){
+			if(act.getAgrupacion().getName().equals(agrupaciones.get(agrupacionLogged).getName())){
+				arract.add(act);
+			}
+		}
+		appui.iniciarHistorialFrame(arract);
 		
 	}
 	

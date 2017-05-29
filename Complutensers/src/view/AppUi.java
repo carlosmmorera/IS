@@ -49,9 +49,9 @@ public class AppUi {
 		student.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		student.addWindowListener(controller);
 	}
-	public void iniciarAEFrame(String nombre){
+	public void iniciarAEFrame(){
 		log.setVisible(false);
-		ae = new AEFrame(controller, nombre);
+		ae = new AEFrame(controller);
 		ae.setVisible(true);
 		ae.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		ae.addWindowListener(controller);
@@ -61,8 +61,8 @@ public class AppUi {
 		results.setVisible(true);
 	}
 	
-	public void iniciarHistorialFrame(String nombre, ArrayList<Actividad> actividades){
-		historial = new HistorialFrame(actividades, nombre, controller);
+	public void iniciarHistorialFrame(ArrayList<Actividad> actividades){
+		historial = new HistorialFrame(actividades, controller);
 		historial.setVisible(true);
 	}
 	

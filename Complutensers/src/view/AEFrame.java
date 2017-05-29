@@ -16,9 +16,8 @@ public class AEFrame extends javax.swing.JFrame {
   	/**
      * Creates new form AEFrame
      */
-    public AEFrame(SearchButtonListener listener, String nombre) {
+    public AEFrame(SearchButtonListener listener) {
     	this.listener = listener;
-    	this.nombreAgrupaci = nombre;
     	initComponents();
     }
 
@@ -79,7 +78,7 @@ public class AEFrame extends javax.swing.JFrame {
 		});
        
         modifiButton.addActionListener((e)->{
-        	listener.mostrarHistorial(nombreAgrupaci);
+        	listener.mostrarHistorial();
         	
         });
         
@@ -178,7 +177,6 @@ public class AEFrame extends javax.swing.JFrame {
     private javax.swing.JTextField searchWords;
     private javax.swing.JButton modifiButton;
     private SearchButtonListener listener;
-    private String nombreAgrupaci;
     
     // End of variables declaration                   
 }
