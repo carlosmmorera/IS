@@ -262,6 +262,8 @@ InitiativeListener, ResultadosListener, exitListener, WindowListener, ActividadI
 		if (alumnoLogged != -1){
 			if (alumnos.get(alumnoLogged).apuntarseActividad(a))
 				appui.mostrarMensaje("Te has apuntado a " + a.getName());
+			else
+				appui.mostrarMensaje("Error: Ya estás apuntado a esta actividad");
 		}
 	}
 
