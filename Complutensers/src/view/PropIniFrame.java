@@ -7,7 +7,7 @@ package view;
 
 /**
  *
- * @author Bittor
+ * @author Ariadna
  */
 public class PropIniFrame extends javax.swing.JFrame {
 

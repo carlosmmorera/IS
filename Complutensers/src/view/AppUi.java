@@ -22,6 +22,7 @@ public class AppUi {
 	private PropIniFrame propini;
 	private Controller controller;
 	private ModificarFrame modact;
+	private CrearActividadFrame regact;
 	
 	public AppUi(Controller controller){
 		this.controller = controller;
@@ -76,9 +77,11 @@ public class AppUi {
 		JOptionPane.showMessageDialog(frame, mensaje);
 	}
 	public void iniciarPropIniFrame(){
-		new PropIniFrame(controller).setVisible(true);
+		propini= new PropIniFrame(controller);
+		propini.setVisible(true);
 	}
 	public void iniciarActIniFrame(){
-		new CrearActividadFrame(controller).setVisible(true);
+		regact=new CrearActividadFrame(controller);
+		regact.setVisible(true);
 	}
 }

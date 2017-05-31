@@ -80,10 +80,6 @@
                 	setVisible(false);
         		});
               
-                proponerIniButton.addActionListener((e)->{
-        			listener.proponerIniciativa();
-        			setVisible(false);
-        		});
                 
 
                 javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

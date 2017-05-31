@@ -27,11 +27,11 @@ import view.SearchButtonListener;
 import view.CrearActividadFrame.ActividadInfoListener;
 import view.HistorialFrame;
 import view.HistorialListener;
-import view.exitListener;
+import view.ExitListener;
 import DAO.DAO;
 
 public class Controller implements LoginListener, ModificarListener, SearchButtonListener, 
-InitiativeListener, ResultadosListener, exitListener, WindowListener, ActividadInfoListener, HistorialListener{
+InitiativeListener, ResultadosListener, ExitListener, WindowListener, ActividadInfoListener, HistorialListener{
 	/*
 	 * BITI: he puesto varios a protected para poder usarlos desde el ejemplo
 	 */
@@ -54,8 +54,19 @@ InitiativeListener, ResultadosListener, exitListener, WindowListener, ActividadI
 			iniciativas = dao.getIniciativas();
 			alumnos = dao.getAlumnos();
 			agrupaciones = dao.getAgrupaciones();
+			iniciarBuscador();
 			appui = new AppUi(this);
 		} catch (IOException e) { }
+	}
+
+	private void iniciarBuscador() {
+		Buscador buscador = Buscador.getInstancia();
+		for(Actividad a : actividades)
+			buscador.insertarActividad(a);
+		for (Agrupacion a : agrupaciones)
+			buscador.insertarAgrupacion(a);
+		for (Iniciativa a : iniciativas)
+			buscador.insertarIniciativa(a);
 	}
 
 	@Override
@@ -97,11 +108,8 @@ InitiativeListener, ResultadosListener, exitListener, WindowListener, ActividadI
 
 	@Override
 	public void buscarActividad(String keyWords) {
-		String[] pc = keyWords.split(" ");
-		Buscador buscador = Buscador.getInstancia();
-		for(Actividad a : actividades)
-			buscador.insertarActividad(a);
-		ArrayList<Actividad> resultados = buscador.buscarActividades(pc);
+		String[] pc = keyWords.split(" ");		
+		ArrayList<Actividad> resultados = Buscador.getInstancia().buscarActividades(pc);
 		ArrayList<Buscable> bu = new ArrayList<Buscable>();
 		for(Actividad a:  resultados){
 			bu.add(a);
@@ -111,11 +119,8 @@ InitiativeListener, ResultadosListener, exitListener, WindowListener, ActividadI
 
 	@Override
 	public void buscarAgrupacion(String keyWords) {
-		String [] pc = keyWords.split(" ");
-		Buscador buscador = Buscador.getInstancia();
-		for (Agrupacion a : agrupaciones)
-			buscador.insertarAgrupacion(a);
-		ArrayList<Agrupacion> resultados = buscador.buscarAgrupaciones(pc);
+		String [] pc = keyWords.split(" ");	
+		ArrayList<Agrupacion> resultados = Buscador.getInstancia().buscarAgrupaciones(pc);
 		ArrayList<Buscable> bu = new ArrayList<Buscable>();
 		for(Agrupacion a:  resultados){
 			bu.add(a);
@@ -155,10 +160,8 @@ InitiativeListener, ResultadosListener, exitListener, WindowListener, ActividadI
 	@Override
 	public void buscarIniciativa(String keyWords) {
 		String [] pc = keyWords.split(" ");
-		Buscador buscador = Buscador.getInstancia();
-		for (Iniciativa a : iniciativas)
-			buscador.insertarIniciativa(a);
-		ArrayList<Iniciativa> resultados = buscador.buscarIniciativas(pc);
+		
+		ArrayList<Iniciativa> resultados = Buscador.getInstancia().buscarIniciativas(pc);
 		ArrayList<Buscable> bu = new ArrayList<Buscable>();
 		for(Iniciativa a:  resultados){
 			bu.add(a);

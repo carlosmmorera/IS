@@ -6,6 +6,7 @@ import java.awt.FlowLayout;
 import java.util.ArrayList;
 
 import javax.swing.BoxLayout;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -39,8 +40,11 @@ public class ResultadosFrame extends JFrame{
 	private void initGUI(int num) {
 		JPanel mainPanel=new JPanel();
 		mainPanel.setLayout(new BorderLayout());
-		
-		JPanel top = new JPanel(new FlowLayout(FlowLayout.LEFT, 10, 20));
+		JPanel top = new JPanel();
+		top.setLayout(new BoxLayout(top, BoxLayout.Y_AXIS));
+		JLabel header = new JLabel();
+		header.setIcon(new ImageIcon("src/resources/header.jpg"));
+		top.add(header);
 		if(num==0)
 			top.add(new JLabel("No se han encontrado resultados"));
 		else if(num==1)

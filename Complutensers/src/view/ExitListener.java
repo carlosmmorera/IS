@@ -1,5 +1,5 @@
 package view;
 
-public interface exitListener {
+public interface ExitListener {
 	void exitApp();
 }

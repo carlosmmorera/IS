@@ -84,7 +84,7 @@ public class AEFrame extends javax.swing.JFrame {
         
         proponerActButton.addActionListener((e)->{
         	listener.proponerActividad();
-        	setVisible(false);
+        	//setVisible(false);
 		});
       
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
