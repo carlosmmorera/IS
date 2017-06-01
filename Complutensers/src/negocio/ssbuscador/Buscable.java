@@ -1,0 +1,14 @@
+package negocio.ssbuscador;
+import java.util.ArrayList;
+import java.util.List;
+
+
+public interface Buscable {
+    
+    ArrayList<String> obtenerPalabrasClave();
+
+	String getName();
+
+	String getDescription();
+
+}
