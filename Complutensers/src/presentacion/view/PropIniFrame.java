@@ -73,7 +73,7 @@ public class PropIniFrame extends javax.swing.JFrame {
         jTextArea1.setRows(5);
         iniDescrArea.setViewportView(jTextArea1);
 
-        proponerButton.setIcon(new javax.swing.ImageIcon("/src/resources/initiatives.png")); // NOI18N
+        proponerButton.setIcon(new javax.swing.ImageIcon("src/integracion/resources/initiatives.png"));
 
         jLabel1.setText("Hora:");
 

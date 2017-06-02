@@ -32,16 +32,12 @@ import presentacion.view.PropIniFrame.InitiativeListener;
 
 public class Controller implements LoginListener, ModificarListener, SearchButtonListener, 
 InitiativeListener, ResultadosListener, ExitListener, WindowListener, ActividadInfoListener, HistorialListener{
-	/*
-	 * BITI: he puesto varios a protected para poder usarlos desde el ejemplo
-	 */
-	
 	private DAO dao;
 	private ArrayList<Actividad> actividades;
-	protected ArrayList<Iniciativa> iniciativas;
-	protected ArrayList<Alumno> alumnos;
+	private ArrayList<Iniciativa> iniciativas;
+	private ArrayList<Alumno> alumnos;
 	private ArrayList<Agrupacion> agrupaciones;
-	protected int alumnoLogged;
+	private int alumnoLogged;
 	private int agrupacionLogged;
 	private AppUi appui;
 	
@@ -195,6 +191,7 @@ InitiativeListener, ResultadosListener, ExitListener, WindowListener, ActividadI
 		for(String s : palsClaveTitulo) if(s.length() > 3) palabrasClave.add(s);
 		for(String s : palsClaveLugar) if(s.length() > 3) palabrasClave.add(s);
 		iniciativas.add(new Iniciativa(nombre,lugarIni,fechaIni,descr,alumnos.get(alumnoLogged),palabrasClave));
+		appui.volverAStudentFrame();
 	}
 	@Override
 	public void exitApp() {

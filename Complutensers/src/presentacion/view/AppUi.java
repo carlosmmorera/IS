@@ -76,10 +76,15 @@ public class AppUi {
 	}
 	public void iniciarPropIniFrame(){
 		propini= new PropIniFrame(controller);
+		propini.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 		propini.setVisible(true);
 	}
 	public void iniciarActIniFrame(){
 		regact=new CrearActividadFrame(controller);
 		regact.setVisible(true);
+	}
+	public void volverAStudentFrame(){
+		propini.setVisible(false);
+		student.setVisible(true);
 	}
 }

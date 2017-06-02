@@ -29,12 +29,12 @@
                 jLabel4 = new javax.swing.JLabel();
                 searchWords = new javax.swing.JTextField();
                 activButton = new javax.swing.JButton();
-                agrupButton = new javax.swing.JButton();
                 iniButton = new javax.swing.JButton();
+                agrButton = new javax.swing.JButton();
                 jLabel5 = new javax.swing.JLabel();
                 jLabel6 = new javax.swing.JLabel();
                 jLabel7 = new javax.swing.JLabel();
-                proponerIniButton = new javax.swing.JButton();
+                proponeragrButton = new javax.swing.JButton();
 
                 setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
                 setPreferredSize(new java.awt.Dimension(384, 620));
@@ -50,9 +50,9 @@
 
                 activButton.setIcon(new javax.swing.ImageIcon("src/integracion/resources/labuenalupa.png")); // NOI18N
 
-                agrupButton.setIcon(new javax.swing.ImageIcon("src/integracion/resources/labuenalupa.png")); // NOI18N
-
                 iniButton.setIcon(new javax.swing.ImageIcon("src/integracion/resources/labuenalupa.png")); // NOI18N
+
+                agrButton.setIcon(new javax.swing.ImageIcon("src/integracion/resources/labuenalupa.png")); // NOI18N
 
                 jLabel5.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
                 jLabel5.setText("Buscar iniciativa");
@@ -63,19 +63,21 @@
                 jLabel7.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
                 jLabel7.setText("Buscar agrupación");
 
-                proponerIniButton.setText("Proponer iniciativa");
+                proponeragrButton.setText("Proponer iniciativa");
                 
-
                 iniButton.addActionListener((e)->{
-        			listener.buscarIniciativa(searchWords.getText());
+                	listener.buscarIniciativa(searchWords.getText());
+                });
+
+                agrButton.addActionListener((e)->{
+        			listener.buscarAgrupacion(searchWords.getText());
         		});
                 
                 activButton.addActionListener((e)->{
         			listener.buscarActividad(searchWords.getText());
         		});
                 
-                proponerIniButton.addActionListener((e)->{
-        			// Biti: es para probar el propIni | listener.buscarAgrupacion(keyWords.getText());
+                proponeragrButton.addActionListener((e)->{
                 	listener.proponerIniciativa();
                 	setVisible(false);
         		});
@@ -112,9 +114,9 @@
                                         .addGap(38, 38, 38)
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                                .addComponent(iniButton)
+                                                .addComponent(agrButton)
                                                 .addGap(53, 53, 53)
-                                                .addComponent(agrupButton))
+                                                .addComponent(iniButton))
                                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                                                 .addComponent(jLabel7)
                                                 .addGap(18, 18, 18)
@@ -122,7 +124,7 @@
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
-                        .addComponent(proponerIniButton)
+                        .addComponent(proponeragrButton)
                         .addGap(130, 130, 130))
                 );
                 layout.setVerticalGroup(
@@ -140,15 +142,15 @@
                         .addGap(45, 45, 45)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(activButton, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(iniButton, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(agrupButton, javax.swing.GroupLayout.Alignment.TRAILING))
+                            .addComponent(agrButton, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(iniButton, javax.swing.GroupLayout.Alignment.TRAILING))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel7)
                             .addComponent(jLabel5)
                             .addComponent(jLabel6))
                         .addGap(68, 68, 68)
-                        .addComponent(proponerIniButton)
+                        .addComponent(proponeragrButton)
                         .addGap(0, 91, Short.MAX_VALUE))
                 );
 
@@ -157,8 +159,8 @@
 
                       // Variables declaration - do not modify                     
             private javax.swing.JButton activButton;
-            private javax.swing.JButton agrupButton;
             private javax.swing.JButton iniButton;
+            private javax.swing.JButton agrButton;
             private javax.swing.JLabel jLabel1;
             private javax.swing.JLabel jLabel2;
             private javax.swing.JLabel jLabel3;
@@ -166,7 +168,7 @@
             private javax.swing.JLabel jLabel5;
             private javax.swing.JLabel jLabel6;
             private javax.swing.JLabel jLabel7;
-            private javax.swing.JButton proponerIniButton;
+            private javax.swing.JButton proponeragrButton;
             private javax.swing.JTextField searchWords;
             SearchButtonListener listener;
             // End of variables declaration                   
