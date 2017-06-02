@@ -25,5 +25,9 @@ public class Iniciativa extends Evento implements Buscable {
 		guardar+=alumno.getName()+'\n';
 		return guardar;
 	}
-
+	@Override
+	protected String desc() {
+		return descripcion+"\nFecha: "+fecha.toString()+"\nLugar: "+ lugar.getDireccion()
+				+ "\nInciativa propuesta por: " + alumno.getName();
+	}
 }

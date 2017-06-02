@@ -27,9 +27,16 @@ public class Agrupacion extends UsuarioConLog implements Buscable {
 	public ArrayList<String> obtenerPalabrasClave() {
 		return palabrasClave;
 	}
-	public void apuntarAlumno(Alumno a){
-		alumno.add(a);
-		a.apuntarseAsociacion(this);
+	public boolean apuntarAlumno(Alumno a){
+		if (alumno.contains(a)){
+			return false;
+		}
+		else{
+			alumno.add(a);
+			a.apuntarseAsociacion(this);
+			return true;
+		}
+		
 	}
 	public void apuntarActividad(Actividad a){
 		actividadesPendientes.add(a);
@@ -49,7 +56,10 @@ public class Agrupacion extends UsuarioConLog implements Buscable {
 
 	@Override
 	public String getDescription() {
-		return nombre;
+		String listaUsuarios = "\nUsuarios apuntados a esta agrupación:\n";
+		for (Alumno a : alumno)
+			listaUsuarios += "- " + a.getName() + "\n";
+		return nombre + listaUsuarios;
 	}
 	public String guardar(){
 		String guardar=nombre +'\n'+password+'\n';

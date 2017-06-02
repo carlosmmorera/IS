@@ -1,17 +1,17 @@
-10
+3
 barbacoa
 barbacoa con los chavalicos
 barbacoa rave fiesta
 facultad de informatica
 18 5 2016 14:24
-muniain cervigon chuloplaya
+muniain cervigon chuloplaya carlos
 teatruko
 VERIFICADA
 futbol
-FURBITO CON LOS CHAVALICOS
+Partido chulo
 futbol gol elBichoooo
-pistas de paraninfo
-9 7 2017 10:45
+Paraninfo
+0 0 0 0:00
 ezequiel paco cervigon misco fisico serazul
 ascii
 NO VERIFICADA
@@ -23,59 +23,3 @@ en algun armario
 paco muniain fisico mendyloko
 ascii
 VERIFICADA
-conciertuko
-el conciertuko de los de teatruko
-concierto musica
-auditorio nacional
-23 6 2017 17:17
-misco willy mendyloko
-teatruko
-NO VERIFICADA
-programmingjam
-pues eso, una jam para programar
-programar jam informatica top
-laboratorios de Google
-19 5 2017 11:01
-paco ferni chuloplaya mendyloko
-librelab
-VERIFICADA
-final debate
-final del torneo de debate de la UCM
-debate UCM final torneo
-Senado de España
-30 12 2017 12:16
-ferni serazul
-debatemadrileño
-VERIFICADA
-MrJägger
-Encuentro organizado con Mr Jägger de estudiantes de la UCM
-YouTube UCM Jägger
-plaza de las ciencias
-29 2 2020 7:06
-ojopipa ferni willy
-youtubersenaccion
-NO VERIFICADA
-limpieza
-macro quedada para limpiar la facultad de informatica
-limpieza informatica
-facultad de informatica
-10 10 2017 10:10
-muniain fisico chuloplaya
-ascii
-VERIFICADA
-conferencia
-conferencia un tema muy interesante
-conferencia interesante charla chapa
-facultad de informatica
-1 18 2018 13:15
-cervigon ojopipa chuloplaya serazul willy
-nasa
-VERIFICADA
-activite egalite et fraternite
-goeoafeosjñ
-activite egalite et fraternite
-efedei
-9 8 2018 18:00
-
-teatruko
-NO VERIFICADA

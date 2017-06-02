@@ -5,7 +5,7 @@ import java.util.List;
 import negocio.ssactividades.map.Lugar;
 import negocio.ssbuscador.Buscable;
 
-public class Evento implements Buscable{
+public abstract class Evento implements Buscable{
     protected String nombre;
     protected String descripcion;
     protected ArrayList<String> palabrasClave=new ArrayList<String>();
@@ -82,6 +82,8 @@ public class Evento implements Buscable{
 	}
 	@Override
 	public String getDescription() {
-		return descripcion+"\nFecha: "+fecha.toString()+"\nLugar: "+ lugar.getDireccion();
+		return desc();
 	}
+	
+	protected abstract String desc();
 }

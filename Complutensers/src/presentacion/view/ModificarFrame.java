@@ -36,7 +36,7 @@ public class ModificarFrame extends JFrame{
 	private void initGUI(){
 	JPanel panel = createPanel();
 	this.add(panel);
-	this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	this.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
 	this.pack();
 	this.setVisible(true);
 }

@@ -5,6 +5,8 @@
  */
 package presentacion.view;
 
+import java.awt.Dimension;
+
 
 /**
  *
@@ -44,6 +46,7 @@ public class AEFrame extends javax.swing.JFrame {
         proponerActButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(384, 620));
 
         jLabel1.setIcon(new javax.swing.ImageIcon("src/integracion/resources/header.jpg")); // NOI18N
 
@@ -52,11 +55,15 @@ public class AEFrame extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Tahoma", 2, 11)); // NOI18N
         jLabel3.setText("Logeado como agrupación");
 
+        
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
         jLabel4.setText("Introduzca las palabras clave de su búsqueda, y pulse buscar");
 
         activButton.setIcon(new javax.swing.ImageIcon("src/integracion/resources/labuenalupa.png")); // NOI18N
 
         iniButton.setIcon(new javax.swing.ImageIcon("src/integracion/resources/labuenalupa.png")); // NOI18N
+        
+        modifiButton.setIcon(new javax.swing.ImageIcon("src/integracion/resources/list.png")); // NOI18N
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
         jLabel5.setText("Buscar iniciativa");
@@ -79,7 +86,6 @@ public class AEFrame extends javax.swing.JFrame {
        
         modifiButton.addActionListener((e)->{
         	listener.mostrarHistorial();
-        	
         });
         
         proponerActButton.addActionListener((e)->{
@@ -115,11 +121,11 @@ public class AEFrame extends javax.swing.JFrame {
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(activButton)
                                     .addComponent(jLabel6))
-                                .addGap(40, 40, 40)
+                                .addGap(25, 25, 25)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                                         .addComponent(modifiButton)
                                         .addComponent(jLabel7))
-                                .addGap(40, 40, 40)
+                                .addGap(25, 25, 25)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(iniButton)
                                     .addComponent(jLabel5)))))) 

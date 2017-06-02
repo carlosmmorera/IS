@@ -47,5 +47,4 @@ public class Alumno extends UsuarioConLog {
 		guardar+='\n';
 		return guardar;
 	}
-
 }

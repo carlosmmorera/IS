@@ -36,4 +36,7 @@ public abstract class UsuarioConLog implements Usuario {
     public String getName(){
     	return nombre;
     }
+	public boolean equals(UsuarioConLog a) {
+		return nombre.equals(a.nombre);
+	}
 }

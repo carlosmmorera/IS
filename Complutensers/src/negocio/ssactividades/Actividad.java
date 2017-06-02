@@ -56,4 +56,12 @@ public class Actividad extends Evento implements Buscable {
 		guardar+='\n';
 		return guardar;
 	}
+
+	@Override
+	protected String desc() {
+		String listaUsuario = "\nLista de Usuarios Apuntados:\n";
+		for (Alumno a : alumnosInscritos)
+			listaUsuario += "- " + a.getName() + "\n";
+		return descripcion+"\nFecha: "+fecha.toString()+"\nLugar: "+ lugar.getDireccion() + listaUsuario;
+	}
 }

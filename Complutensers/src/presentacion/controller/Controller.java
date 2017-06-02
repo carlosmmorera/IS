@@ -146,7 +146,6 @@ InitiativeListener, ResultadosListener, ExitListener, WindowListener, ActividadI
 		for(Actividad act : actividades){
 			if(a.getName().equals(act.getName())){
 			act.ModificarNombre(a.getName());
-			act.modificarDescripcion(a.getDescription());
 			act.modificarFecha(a.getFecha());	
 			act.modificarLugar(act.getLugar());
 			}
@@ -190,8 +189,10 @@ InitiativeListener, ResultadosListener, ExitListener, WindowListener, ActividadI
 		String[] palsClaveLugar = lugar.split(" ");
 		for(String s : palsClaveTitulo) if(s.length() > 3) palabrasClave.add(s);
 		for(String s : palsClaveLugar) if(s.length() > 3) palabrasClave.add(s);
-		iniciativas.add(new Iniciativa(nombre,lugarIni,fechaIni,descr,alumnos.get(alumnoLogged),palabrasClave));
+		Iniciativa ini = new Iniciativa(nombre,lugarIni,fechaIni,descr,alumnos.get(alumnoLogged),palabrasClave); 
+		iniciativas.add(ini);
 		appui.volverAStudentFrame();
+		Buscador.getInstancia().insertarIniciativa(ini);
 	}
 	@Override
 	public void exitApp() {
@@ -244,6 +245,7 @@ InitiativeListener, ResultadosListener, ExitListener, WindowListener, ActividadI
 				Integer.parseInt(anyo), new Hora(Integer.parseInt(hora),Integer.parseInt(min)));
 		Actividad a = agrupaciones.get(agrupacionLogged).crearActividad(name, desc, keyWords, place, fecha);
 		actividades.add(a);
+		Buscador.getInstancia().insertarActividad(a);
 	}
 
 	@Override
@@ -253,8 +255,10 @@ InitiativeListener, ResultadosListener, ExitListener, WindowListener, ActividadI
 
 	@Override
 	public void apuntarseAgrup(Agrupacion elem) {
-		elem.apuntarAlumno(alumnos.get(alumnoLogged));
-		appui.mostrarMensaje("Te has apuntado a " + elem.getName());
+		if (elem.apuntarAlumno(alumnos.get(alumnoLogged)))
+			appui.mostrarMensaje("Te has apuntado a " + elem.getName());
+		else
+			appui.mostrarMensaje("Error: Ya estás apuntado a esta agrupación");
 	}
 
 	@Override

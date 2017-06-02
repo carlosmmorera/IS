@@ -45,7 +45,8 @@
 
                 jLabel3.setFont(new java.awt.Font("Tahoma", 2, 11)); // NOI18N
                 jLabel3.setText("Logeado como estudiante");
-
+                
+                jLabel4.setFont(new java.awt.Font("Tahoma", 1, 10)); // NOI18N
                 jLabel4.setText("Introduzca las palabras clave de su búsqueda, y pulse buscar");
 
                 activButton.setIcon(new javax.swing.ImageIcon("src/integracion/resources/labuenalupa.png")); // NOI18N
